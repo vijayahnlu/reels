@@ -1,0 +1,22 @@
+{
+  "name": "reels",
+  "version": "1.0.0",
+  "description": "Short-form videos built with HyperFrames",
+  "scripts": {
+    "new": "scripts/new-video.sh",
+    "doctor": "hyperframes doctor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayahnlu/reels.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vijayahnlu/reels/issues"
+  },
+  "homepage": "https://github.com/vijayahnlu/reels#readme",
+  "devDependencies": {
+    "gsap": "^3.14.2",
+    "hyperframes": "^0.8.143"
+  },
+  "private": true
+}

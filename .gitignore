@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+
+# HyperFrames render output and caches
+*.mp4
+*.webm
+*.mov
+renders/
+.hyperframes/

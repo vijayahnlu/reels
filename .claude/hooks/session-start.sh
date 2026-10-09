@@ -1,0 +1,11 @@
+#!/bin/bash
+# Prepares a cloud session for HyperFrames work: npm deps + headless Chrome for rendering.
+set -euo pipefail
+
+if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
+  exit 0
+fi
+
+cd "$CLAUDE_PROJECT_DIR"
+npm install --no-audit --no-fund
+npx hyperframes browser ensure
