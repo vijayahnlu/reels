@@ -19,7 +19,8 @@ const words = fs.existsSync(transcriptPath) ? JSON.parse(fs.readFileSync(transcr
 
 const FPS = edit.fps || 30;
 const q = (t) => Math.round(t * FPS) / FPS;
-const DUR = q(edit.duration);
+const metaPath = path.join(dir, "metadata.json");
+const DUR = q(edit.duration || +JSON.parse(fs.readFileSync(metaPath, "utf8")).format.duration);
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // ==phrase== in any text becomes a yellow marker highlight
 const rich = (s) => esc(s).replace(/==(.+?)==/g, '<span class="mark"><span class="mark-bg"></span>$1</span>');
@@ -31,6 +32,22 @@ fs.mkdirSync(path.join(dir, "assets", "vendor"), { recursive: true });
 for (const f of fs.readdirSync(path.join(kit, "fonts"))) fs.copyFileSync(path.join(kit, "fonts", f), path.join(dir, "assets", "fonts", f));
 for (const f of fs.readdirSync(path.join(kit, "sfx"))) fs.copyFileSync(path.join(kit, "sfx", f), path.join(dir, "assets", "sfx", f));
 fs.copyFileSync(path.join(root, "node_modules", "gsap", "dist", "gsap.min.js"), path.join(dir, "assets", "vendor", "gsap.min.js"));
+
+// ---------- word anchors ----------
+// Any time in edit.json can be seconds (12.4) or a spoken word: "@Ken-Betwa" (start of its first
+// occurrence), "@tiger#2" (second occurrence), "@reserve.end" (when the word finishes), with an
+// optional offset: "@1980-0.1". Anchors keep every zoom and card on the exact frame the word lands.
+const normWord = (w) => w.toLowerCase().replace(/[^a-z0-9₹%]/g, "");
+function at(v) {
+  if (typeof v === "number") return q(v);
+  const m = /^@(.+?)(?:#(\d+))?(\.end)?([+-]\d*\.?\d+)?$/.exec(String(v));
+  if (!m) throw new Error(`bad time "${v}"`);
+  const want = normWord(m[1]);
+  const hits = words.filter((w) => normWord(w.text) === want);
+  const hit = hits[(+m[2] || 1) - 1];
+  if (!hit) throw new Error(`word "${m[1]}"${m[2] ? ` #${m[2]}` : ""} not found in the transcript`);
+  return q(Math.min(Math.max((m[3] ? hit.end : hit.start) + (+m[4] || 0), 0), DUR));
+}
 
 // ---------- captions ----------
 const capCfg = { maxWords: 3, maxChars: 16, ...(edit.captions || {}) };
@@ -78,7 +95,18 @@ const captionsHtml = visibleGroups
 const map = JSON.parse(fs.readFileSync(path.join(kit, "india-map.json"), "utf8"));
 const stateName = Object.fromEntries(map.states.map((s) => [s.id, s.name]));
 const PAPER_TYPES = new Set(["headline", "stat", "map", "timeline", "term", "compare"]);
-const cards = (edit.cards || []).map((c, i) => ({ ...c, id: `card-${String(i + 1).padStart(2, "0")}`, start: q(c.start), end: q(c.end) }));
+const cards = (edit.cards || []).map((c, i) => {
+  const card = { ...c, id: `card-${String(i + 1).padStart(2, "0")}`, start: at(c.start), end: at(c.end) };
+  if (card.end <= card.start) throw new Error(`${card.id} (${c.type}) ends before it starts`);
+  if (card.end - card.start < 1) console.warn(`warning: ${card.id} (${c.type}) is on screen only ${(card.end - card.start).toFixed(2)}s, too short to read`);
+  if (c.type === "timeline") {
+    const step = c.step || 0.35;
+    // An item can pop on its spoken word ("at"); the ones after it follow one step apart, in order.
+    let prev = card.start + 0.45 - step;
+    card.itemTimes = c.items.map((it) => (prev = it.at !== undefined ? Math.max(at(it.at), prev + 0.1) : q(prev + step)));
+  }
+  return card;
+});
 
 function cardInner(c) {
   switch (c.type) {
@@ -135,14 +163,40 @@ cards
     if (last && c.start - last.end < 1.2) last.end = c.end;
     else paper.push({ start: c.start, end: c.end });
   });
+cards
+  .filter((c) => !PAPER_TYPES.has(c.type))
+  .forEach((c) => {
+    if (paper.some((p) => c.start < p.end && c.end > p.start - 0.3))
+      console.warn(`warning: ${c.id} (${c.type}) overlaps a paper card; full-screen stamps need the video full screen`);
+  });
 const paperSegs = paper.map((p) => ({ in: q(Math.max(0, p.start - 0.3)), out: p.end >= DUR - 0.2 ? null : q(p.end - 0.1) }));
 
 // ---------- zooms ----------
-const zooms = (edit.zooms || []).map((z) => {
+// punch: lands in 0.14s, starting a hair before the word so the hit is on the syllable.
+// cut: instant reframe on one frame (classic jump-cut zoom). push: slow drift. smooth: eased move.
+const PRESETS = {
+  punch: { dur: 0.14, ease: "expo.out", lead: 0.03 },
+  cut: { dur: 0, ease: "none", lead: 0 },
+  push: { dur: 3, ease: "sine.inOut", lead: 0 },
+  smooth: { dur: 0.45, ease: "expo.inOut", lead: 0 },
+};
+let zoomList = (edit.zooms || []).map((z) => {
   const style = z.style || "punch";
-  const preset = { punch: { dur: 0.22, ease: "power3.out" }, push: { dur: 3, ease: "sine.inOut" }, smooth: { dur: 0.7, ease: "power2.inOut" } }[style];
-  return { at: q(z.at), scale: z.scale, x: z.x || 0, y: z.y || 0, dur: z.dur || preset.dur, ease: z.ease || preset.ease };
+  const p = PRESETS[style];
+  if (!p) throw new Error(`unknown zoom style "${style}"`);
+  return { at: q(Math.max(0, at(z.at) - p.lead)), scale: z.scale, x: z.x || 0, y: z.y || 0, dur: z.dur || p.dur, ease: z.ease || p.ease, cut: style === "cut", style };
 });
+// Jump cuts from scripts/tighten.py: alternate framing at each cut so the edit reads as intentional.
+const cutsPath = path.join(dir, "cuts.json");
+if (edit.cutZoom !== false && fs.existsSync(cutsPath)) {
+  const cutScales = edit.cutZoomScales || [1.0, 1.12];
+  JSON.parse(fs.readFileSync(cutsPath, "utf8")).forEach((t, k) => {
+    const tq = q(t);
+    if (zoomList.some((z) => Math.abs(z.at - tq) < 0.6)) return; // a hand-placed zoom owns this moment
+    zoomList.push({ at: tq, scale: cutScales[(k + 1) % cutScales.length], x: 0, y: 0, dur: 0, ease: "none", cut: true, style: "cut" });
+  });
+}
+const zooms = zoomList.sort((a, b) => a.at - b.at);
 
 // ---------- sound effects ----------
 const sfx = [];
@@ -159,11 +213,10 @@ if (sfxOn) {
     if (c.type === "keyword" || c.type === "hook" || c.type === "stat") add("pop.wav", c.start, 0.5);
     else if (!inPaperStart) add("whoosh.wav", c.start, 0.3);
     if (c.type === "timeline") {
-      c.step = c.step || 0.45;
-      c.items.forEach((_, i) => add("tick.wav", c.start + 0.9 + i * c.step, 0.5));
+      c.itemTimes.forEach((t) => add("tick.wav", t, 0.5));
     }
   });
-  zooms.filter((z) => z.dur <= 0.3 && z.scale > 1.05).forEach((z) => add("whoosh.wav", z.at - 0.05, 0.15));
+  zooms.filter((z) => z.style === "punch" && z.scale > 1.05).forEach((z) => add("whoosh.wav", z.at - 0.05, 0.15));
 }
 // give each effect the first audio lane that is free at its start time
 const laneEnds = [];
@@ -188,7 +241,8 @@ const reel = {
     value: c.value,
     from: c.from || 0,
     decimals: c.decimals || 0,
-    step: c.step || (c.type === "compare" ? 0.3 : 0.45),
+    step: c.step || 0.2,
+    itemTimes: c.itemTimes,
   })),
 };
 

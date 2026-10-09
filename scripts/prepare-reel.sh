@@ -4,7 +4,7 @@
 #   - re-encodes to 1080x1920, 30fps, dense keyframes (assets/footage.mp4)
 #   - writes metadata.json and audio.mp3
 #   - transcribes to transcript.json (word timings for captions)
-# Then write videos/<name>/edit.json and run: node scripts/build-reel.mjs <name>
+# Then: python3 scripts/tighten.py <name>  (cut pauses), write edit.json, node scripts/build-reel.mjs <name>
 set -euo pipefail
 
 src="${1:?usage: scripts/prepare-reel.sh <video> <name>}"
@@ -12,11 +12,13 @@ name="${2:?usage: scripts/prepare-reel.sh <video> <name>}"
 root="$(cd "$(dirname "$0")/.." && pwd)"
 dir="$root/videos/$name"
 mkdir -p "$dir/assets"
+# fresh footage: drop anything an earlier tighten.py run left behind
+rm -f "$dir/assets/footage-untrimmed.mp4" "$dir/transcript-untrimmed.json" "$dir/cuts.json"
 
 # Fill 9:16 (crop if the source is wider), 30fps, keyframe every frame-second so seeking never freezes.
 ffmpeg -y -loglevel error -i "$src" \
   -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30" \
-  -c:v libx264 -crf 18 -preset medium -g 30 -keyint_min 30 -pix_fmt yuv420p \
+  -c:v libx264 -crf 14 -preset slow -g 30 -keyint_min 30 -pix_fmt yuv420p \
   -c:a aac -b:a 192k -ar 48000 -movflags +faststart "$dir/assets/footage.mp4"
 
 ffprobe -v error -show_entries format=duration -of json "$dir/assets/footage.mp4" > "$dir/metadata.json"

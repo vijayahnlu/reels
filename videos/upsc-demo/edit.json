@@ -1,32 +1,30 @@
 {
   "title": "Ken-Betwa link (style demo)",
-  "duration": 38.4,
   "captions": {
     "hot": ["first", "Ken-Betwa", "Madhya", "Pradesh", "Uttar", "1980.", "44,605", "Bundelkhand.", "Panna", "Tiger", "prelims,"]
   },
   "zooms": [
-    { "at": 0, "scale": 1.08, "style": "push", "dur": 4.6 },
-    { "at": 5.05, "scale": 1.22, "style": "punch" },
-    { "at": 7.5, "scale": 1.0, "style": "smooth" },
-    { "at": 18.45, "scale": 1.15, "style": "punch" },
-    { "at": 21.7, "scale": 1.0, "style": "smooth" },
-    { "at": 22.15, "scale": 1.25, "style": "punch" },
-    { "at": 25.6, "scale": 1.0, "style": "smooth" },
-    { "at": 31.9, "scale": 1.12, "style": "push", "dur": 5 }
+    { "at": 0, "scale": 1.06, "style": "push", "dur": 3 },
+    { "at": "@Ken-Betwa", "scale": 1.2, "style": "punch" },
+    { "at": "@link.end", "scale": 1.0, "style": "smooth" },
+    { "at": "@44,605", "scale": 1.15, "style": "punch" },
+    { "at": "@rupees.end", "scale": 1.0, "style": "smooth" },
+    { "at": "@irrigate", "scale": 1.22, "style": "punch" },
+    { "at": "@prelims", "scale": 1.12, "style": "punch" }
   ],
   "cards": [
-    { "type": "hook", "start": 0.3, "end": 4.6, "kicker": "UPSC · GS-1 Geography", "title": "India's ==first== river link" },
-    { "type": "keyword", "start": 5.05, "end": 7.6, "lines": ["Ken–Betwa"], "sub": "River Interlinking Project" },
-    { "type": "map", "start": 7.9, "end": 12.6, "kicker": "Where", "title": "Two rivers, ==two states==", "states": ["mp", "up"], "note": "Water moves from the Ken basin to the Betwa basin, both Yamuna tributaries." },
-    { "type": "timeline", "start": 12.9, "end": 18.1, "kicker": "Origin", "title": "From plan to ==ground==", "items": [
+    { "type": "hook", "start": 0.1, "end": "@It's-0.05", "kicker": "UPSC · GS-1 Geography", "title": "India's ==first== river link" },
+    { "type": "keyword", "start": "@called", "end": "@Two-0.3", "lines": ["Ken–Betwa"], "sub": "River Interlinking Project" },
+    { "type": "map", "start": "@Two", "end": "@Pradesh#2.end+0.15", "kicker": "Where", "title": "Two rivers, ==two states==", "states": ["mp", "up"], "note": "Water moves from the Ken basin to the Betwa basin, both Yamuna tributaries." },
+    { "type": "timeline", "start": "@idea", "end": "@cost-0.25", "kicker": "Origin", "title": "From plan to ==ground==", "step": 0.55, "items": [
       { "year": "1980", "text": "National Perspective Plan" },
       { "year": "2005", "text": "First MoU signed" },
       { "year": "2021", "text": "Cabinet approval" },
       { "year": "2024", "text": "Foundation stone" }
     ] },
-    { "type": "stat", "start": 18.4, "end": 21.8, "prefix": "₹", "value": 44605, "unit": "cr", "label": "Estimated ==project cost==", "source": "Union Cabinet, Dec 2021" },
-    { "type": "keyword", "start": 22.15, "end": 25.9, "lines": ["Bundelkhand"], "sub": "drought-hit region of MP & UP" },
-    { "type": "compare", "start": 26.3, "end": 31.5, "a": { "title": "For", "items": ["Irrigation for Bundelkhand", "Drinking water", "103 MW hydropower"] }, "b": { "title": "Against", "items": ["Floods part of Panna Tiger Reserve", "Forest loss", "Displacement"] } },
-    { "type": "term", "start": 31.8, "end": 38.2, "kicker": "Prelims pointer", "title": "Ken, Betwa, ==Panna==", "body": "Both rivers are Yamuna tributaries. Daudhan dam on the Ken sits inside Panna Tiger Reserve, Madhya Pradesh." }
+    { "type": "stat", "start": "@44,605-0.15", "end": "@Supporters-0.05", "prefix": "₹", "value": 44605, "unit": "cr", "label": "Estimated ==project cost==", "source": "Union Cabinet, Dec 2021" },
+    { "type": "keyword", "start": "@irrigate", "end": "@Critics-0.3", "lines": ["Bundelkhand"], "sub": "drought-hit region of MP & UP" },
+    { "type": "compare", "start": "@Critics", "end": "@prelims-0.05", "a": { "title": "For", "items": ["Irrigation for Bundelkhand", "Drinking water", "103 MW hydropower"] }, "b": { "title": "Against", "items": ["Floods part of Panna Tiger Reserve", "Forest loss", "Displacement"] } },
+    { "type": "term", "start": "@prelims", "end": "@reserve#2.end+0.4", "kicker": "Prelims pointer", "title": "Ken, Betwa, ==Panna==", "body": "Both rivers are Yamuna tributaries. Daudhan dam on the Ken sits inside Panna Tiger Reserve, Madhya Pradesh." }
   ]
 }

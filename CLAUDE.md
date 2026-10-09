@@ -11,4 +11,4 @@ Short-form videos made with [HyperFrames](https://github.com/heygen-com/hyperfra
 ## UPSC talking-head reels
 
 The owner makes UPSC explainer reels and doesn't code; do the whole edit for them. Every reel uses the shared look in `kit/` (read `kit/README.md`):
-`scripts/prepare-reel.sh <raw-video> <name>` → correct `transcript.json` → write `videos/<name>/edit.json` (zooms, captions, cards timed to the transcript) → `node scripts/build-reel.mjs <name>` → check, snapshot, render. Never hand-edit a reel's `index.html`; it is regenerated from `edit.json`. Fact-check every number, date and name that goes on screen. `videos/upsc-demo` is the reference example.
+`scripts/prepare-reel.sh <raw-video> <name>` → correct `transcript.json` → `python3 scripts/tighten.py <name>` → write `videos/<name>/edit.json` (zooms and cards anchored to spoken words with `@word`) → `node scripts/build-reel.mjs <name>` → check, snapshot → `scripts/render-reel.sh <name>`. Never hand-edit a reel's `index.html`; it is regenerated from `edit.json`. Fact-check every number, date and name that goes on screen. `videos/upsc-demo` is the reference example.
