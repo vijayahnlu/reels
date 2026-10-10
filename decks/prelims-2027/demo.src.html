@@ -1,0 +1,273 @@
+<meta charset="utf-8">
+<title>Prelims 2027 Deck</title>
+<style>
+/* Layout: fixed 1920x1080 stage (same geometry as the 13.33in PPT, 1pt = 2px), scaled to fit any screen */
+@font-face{font-family:"Nimbus Sans L";font-weight:700;font-style:normal;src:url(data:font/otf;base64,{{FONT_B}}) format("opentype")}
+@font-face{font-family:"Nimbus Sans L";font-weight:700;font-style:italic;src:url(data:font/otf;base64,{{FONT_BI}}) format("opentype")}
+:root{
+  --ink:#0A0A0A; --cream:#F5EDE4; --bar:#F3EBE2; --gold:#D2A448; --blush:#F0B4A6;
+  --red:#D9553F; --brick:#9B2B23; --oxblood:#79231E; --ash:#57504B; --amber:#EDB92A;
+  --font:"Nimbus Sans L","Nimbus Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --out:cubic-bezier(.16,1,.3,1); --spring:cubic-bezier(.22,1.18,.36,1);
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{margin:0;background:#000;color:var(--cream);font-family:var(--font);font-weight:700;overflow:hidden;-webkit-font-smoothing:antialiased}
+#viewport{position:fixed;inset:0;background:#000}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:var(--ink)}
+.slide.on{visibility:visible}
+.abs{position:absolute}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
+.band{position:absolute;left:0;width:100%;background:rgba(0,0,0,.45)}
+.band.top{top:0;height:158.4px}
+.band.bot{top:979.2px;height:100.8px}
+.kicker{left:86.4px;top:72px;font-size:30px;letter-spacing:6px;color:var(--gold);white-space:nowrap;line-height:1.2}
+.num{left:1713.6px;top:1002.2px;width:122.4px;text-align:right;font-size:24px;color:var(--cream);line-height:1.2}
+.card{border-radius:17px;background:rgba(0,0,0,.68);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 30px 80px -30px rgba(0,0,0,.6)}
+.line{display:block;line-height:1.18}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .14em .12em 0;margin-right:-.14em}
+.w>span{display:inline-block;will-change:transform}
+.it{font-style:italic;color:var(--blush)}
+
+/* Slide 01 countdown, drawn in the source PNG's 2000x433 space */
+.cd{left:376.1px;top:698.4px;width:2000px;height:433px;transform:scale(.58155);transform-origin:0 0}
+.cd .m{position:absolute;top:58px;font-size:38px;color:var(--cream);opacity:.92;letter-spacing:.5px}
+.cd .tk{position:absolute;top:100px;width:2px;height:33px;background:var(--cream);opacity:.85;transform-origin:50% 100%}
+.cd .c{position:absolute;top:142px;width:55px;height:133px;border-radius:7px;transform-origin:50% 100%}
+.cd .lab{position:absolute;top:322px;font-size:40px;color:var(--cream);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* Slide 04 chart, drawn in the source PNG's 2000x852 space */
+.ch{left:307px;top:396px;width:2000px;height:852px;transform:scale(.65055);transform-origin:0 0}
+.ch .g{position:absolute;left:104px;width:1844px;height:2px;background:#3d3a38;transform-origin:0 50%}
+.ch .base{background:rgba(242,232,222,.55)}
+.ch .ax{position:absolute;left:0;width:88px;text-align:right;font-size:27px;color:var(--cream);opacity:.85}
+.ch .b{position:absolute;width:197px;bottom:122px;border-radius:7px 7px 2px 2px;background:var(--bar);transform-origin:50% 100%}
+.ch .v{position:absolute;width:300px;text-align:center;font-size:50px;color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ch .y{position:absolute;top:748px;width:300px;text-align:center;font-size:35px;color:var(--cream);opacity:.9}
+.ch .b.hot{background:var(--red)}
+.ch .v.hot{color:var(--red);font-size:52px}
+.ch .bracket{position:absolute;left:1939px;top:240px;width:6px;height:260px;background:var(--amber);border-radius:3px;transform-origin:50% 0}
+.ch .note{position:absolute;right:75px;top:172px;font-size:36px;color:var(--amber);white-space:nowrap}
+
+/* hover-only controls: invisible on a still screen share */
+#nav{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;opacity:0;transition:opacity .4s}
+body.mouse #nav{opacity:1}
+#nav button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:22px;display:grid;place-items:center;background:rgba(255,255,255,.12);color:#fff;font:700 20px/1 var(--font);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#nav button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#nav button:hover{background:rgba(255,255,255,.22)}
+</style>
+
+<div id="viewport"><div id="stage">
+
+<!-- ============ 01 ============ -->
+<section class="slide" data-n="01">
+  <img class="bg" src="data:image/jpeg;base64,{{BG01}}" alt="">
+  <div class="band top"></div><div class="band bot"></div>
+  <div class="abs num">01</div>
+  <div class="abs card" style="left:50.4px;top:201.6px;width:1353.6px;height:446.4px"></div>
+  <div class="abs kicker">CIVILSDAILY IAS &middot; PRELIMS 2027</div>
+  <div class="abs" style="left:86.4px;top:223.2px;width:1296px;font-size:160px"><span class="line split">Prelims 2027.</span></div>
+  <div class="abs it" style="left:86.4px;top:410.4px;width:1339.2px;font-size:88px"><span class="line split">Eight months, read from the paper.</span></div>
+  <div class="abs card" style="left:72px;top:672.5px;width:1771.2px;height:303.8px;border-radius:17px;background:rgba(0,0,0,.70)"></div>
+  <div class="abs cd" id="cd"></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="slide" data-n="04">
+  <img class="bg" src="data:image/jpeg;base64,{{BG04}}" alt="">
+  <div class="band top"></div><div class="band bot"></div>
+  <div class="abs num">04</div>
+  <div class="abs kicker">WHAT YOU ARE ACTUALLY CHASING</div>
+  <div class="abs card" style="left:50.4px;top:136.8px;width:1152px;height:216px"></div>
+  <div class="abs" style="left:86.4px;top:144px;width:1238.4px;font-size:108px"><span class="line split">The target moves.</span></div>
+  <div class="abs it" style="left:86.4px;top:266.4px;width:1152px;font-size:52px"><span class="line split">Plan for 105, not for one year's cut-off.</span></div>
+  <div class="abs card" style="left:86.4px;top:370.1px;width:1742.4px;height:606.2px;background:rgba(0,0,0,.72)"></div>
+  <div class="abs ch" id="ch"></div>
+</section>
+
+</div></div>
+<div id="nav"><button id="prev" aria-label="Previous slide">‹</button><button id="replay" aria-label="Replay animation">↺</button><button id="next" aria-label="Next slide">›</button></div>
+
+<script>
+(() => {
+const OUT = 'cubic-bezier(.16,1,.3,1)', SPRING = 'cubic-bezier(.22,1.18,.36,1)', SOFT = 'cubic-bezier(.4,0,.2,1)';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- build slide 01 countdown (32 weeks, colours as in the original) ---------- */
+const cd = document.getElementById('cd');
+const months = [['OCT',21],['NOV',205],['DEC',469],['JAN',738],['FEB',1008],['MAR',1254],['APR',1530],['MAY',1795]];
+months.forEach(([t,x]) => {
+  cd.insertAdjacentHTML('beforeend', `<div class="tk" style="left:${x}px"></div><div class="m" style="left:${x+7}px">${t}</div>`);
+});
+for (let i = 0; i < 32; i++) {
+  const col = i < 10 ? 'var(--brick)' : i < 16 ? 'var(--ash)' : i < 30 ? 'var(--oxblood)' : i === 30 ? 'var(--gold)' : 'var(--red)';
+  cd.insertAdjacentHTML('beforeend', `<div class="c" style="left:${20 + i*61.45}px;background:${col}"></div>`);
+}
+cd.insertAdjacentHTML('beforeend',
+  `<div class="lab" id="cdL" style="left:16px">9 OCT 2026</div>
+   <div class="lab" id="cdM" style="left:0;width:2000px;text-align:center"><span id="wk">32</span> weeks &nbsp;&middot;&nbsp; <span id="dy">226</span> days</div>
+   <div class="lab" id="cdR" style="right:20px;color:#F0BE32">23 MAY 2027</div>`);
+
+/* ---------- build slide 04 cut-off chart ---------- */
+const ch = document.getElementById('ch');
+const Y = v => 730 - (v - 60) * 15;
+[100,90,80,70].forEach(v => ch.insertAdjacentHTML('beforeend',
+  `<div class="g" style="top:${Y(v)-1}px"></div><div class="ax" style="top:${Y(v)-18}px">${v}</div>`));
+ch.insertAdjacentHTML('beforeend', `<div class="g base" style="top:729px"></div>`);
+const data = [[2021,87.54],[2022,88.22],[2023,75.41],[2024,87.98],[2025,92.66],[2026,79,'~']];
+data.forEach(([yr,v,approx],i) => {
+  const cx = 259 + i*307, hot = !!approx;
+  ch.insertAdjacentHTML('beforeend',
+    `<div class="b${hot?' hot':''}" style="left:${cx-98.5}px;height:${730-Y(v)}px"></div>
+     <div class="v${hot?' hot':''}" data-v="${v}" data-approx="${approx||''}" style="left:${cx-150}px;top:${Y(v)-66}px">${approx||''}${hot?v:v.toFixed(2)}</div>
+     <div class="y" style="left:${cx-150}px">${yr}</div>`);
+});
+ch.insertAdjacentHTML('beforeend', `<div class="bracket"></div><div class="note">17 marks apart</div>`);
+
+/* ---------- split headline text into masked words ---------- */
+document.querySelectorAll('.split').forEach(el => {
+  el.innerHTML = el.textContent.split(' ').map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
+});
+
+/* ---------- animation helpers ---------- */
+let running = [];
+function A(el, kf, o) {
+  if (!el) return;
+  const a = el.animate(kf, Object.assign({fill:'both', easing:OUT}, o));
+  running.push(a); return a;
+}
+function count(el, from, to, dec, delay, dur, prefix='') {
+  const t0 = performance.now() + delay;
+  const tick = now => {
+    const p = Math.min(1, Math.max(0, (now - t0) / dur)), e = 1 - Math.pow(1 - p, 4);
+    el.textContent = prefix + (from + (to - from) * e).toFixed(dec);
+    if (p < 1 && el.isConnected && !el._stop) requestAnimationFrame(tick);
+  };
+  el._stop = false; requestAnimationFrame(tick);
+}
+const q = (s, r) => r.querySelector(s), qa = (s, r) => [...r.querySelectorAll(s)];
+
+function common(s) {
+  A(q('.bg',s), [{opacity:0, transform:'scale(1.14)'},{opacity:1, transform:'scale(1)'}], {duration:3200});
+  A(q('.band.top',s), [{transform:'translateY(-100%)'},{transform:'none'}], {duration:1000, delay:150});
+  A(q('.band.bot',s), [{transform:'translateY(100%)'},{transform:'none'}], {duration:1000, delay:150});
+  A(q('.kicker',s), [{opacity:0, letterSpacing:'22px', filter:'blur(6px)'},{opacity:1, letterSpacing:'6px', filter:'blur(0)'}], {duration:1400, delay:350});
+  A(q('.num',s), [{opacity:0},{opacity:1}], {duration:800, delay:900});
+}
+function words(el, delay, stagger) {
+  qa('.w>span', el).forEach((w,i) => A(w, [{transform:'translateY(105%)'},{transform:'none'}], {duration:1100, delay:delay + i*stagger}));
+}
+function card(el, delay) {
+  A(el, [{opacity:0, transform:'translateY(28px) scale(.985)'},{opacity:1, transform:'none'}], {duration:1100, delay});
+}
+
+const scenes = {
+  '01'(s) {
+    common(s);
+    const cards = qa('.card', s);
+    card(cards[0], 550);
+    const [t, sub] = qa('.split', s);
+    words(t, 750, 110);
+    words(sub, 1050, 70);
+    card(cards[1], 1500);
+    qa('.tk', s).forEach((el,i) => A(el, [{transform:'scaleY(0)'},{transform:'none'}], {duration:600, delay:1800 + i*90}));
+    qa('.m', s).forEach((el,i) => A(el, [{opacity:0, transform:'translateY(10px)'},{opacity:.92, transform:'none'}], {duration:700, delay:1800 + i*90}));
+    const cells = qa('.c', s);
+    cells.forEach((el,i) => A(el, [{transform:'scaleY(0)', opacity:0},{transform:'none', opacity:1}], {duration:900, delay:2000 + i*38, easing:SPRING}));
+    const last = 2000 + 31*38 + 500;
+    A(cells[30], [{boxShadow:'0 0 0 0 rgba(210,164,72,0)'},{boxShadow:'0 0 28px 6px rgba(210,164,72,.55)'},{boxShadow:'0 0 0 0 rgba(210,164,72,0)'}], {duration:1400, delay:last, easing:SOFT, fill:'none'});
+    A(cells[31], [{boxShadow:'0 0 0 0 rgba(217,85,63,0)', transform:'none'},{boxShadow:'0 0 40px 10px rgba(217,85,63,.6)', transform:'scale(1.06)'},{boxShadow:'0 0 0 0 rgba(217,85,63,0)', transform:'none'}], {duration:1600, delay:last+250, iterations:2, easing:SOFT, fill:'none'});
+    A(q('#cdL',s), [{opacity:0, transform:'translateX(-30px)'},{opacity:1, transform:'none'}], {duration:1000, delay:2300});
+    A(q('#cdR',s), [{opacity:0, transform:'translateX(30px)'},{opacity:1, transform:'none'}], {duration:1000, delay:last});
+    A(q('#cdM',s), [{opacity:0},{opacity:1}], {duration:800, delay:2300});
+    count(q('#wk',s), 0, 32, 0, 2300, 1500);
+    count(q('#dy',s), 0, 226, 0, 2300, 1500);
+  },
+  '04'(s) {
+    common(s);
+    const cards = qa('.card', s);
+    card(cards[0], 550);
+    const [t, sub] = qa('.split', s);
+    words(t, 750, 110);
+    words(sub, 1100, 55);
+    card(cards[1], 1350);
+    qa('.g', s).forEach((el,i) => A(el, [{transform:'scaleX(0)'},{transform:'none'}], {duration:1200, delay:1600 + i*70}));
+    qa('.ax', s).forEach((el,i) => A(el, [{opacity:0},{opacity:.85}], {duration:700, delay:1700 + i*70}));
+    const bars = qa('.b', s), vals = qa('.v', s), yrs = qa('.y', s);
+    bars.forEach((b,i) => {
+      const d = i < 5 ? 2050 + i*150 : 3150;
+      A(b, [{transform:'scaleY(0)'},{transform:'none'}], {duration:1200, delay:d, easing:SPRING});
+      A(yrs[i], [{opacity:0, transform:'translateY(12px)'},{opacity:.9, transform:'none'}], {duration:700, delay:d});
+      const v = vals[i], top = parseFloat(v.style.top);
+      A(v, [{opacity:0, transform:`translateY(${730 - top - 60}px)`},{opacity:1, transform:'none'}], {duration:1200, delay:d, easing:SPRING});
+      const target = +v.dataset.v;
+      count(v, 60, target, v.dataset.approx ? 0 : 2, d, 1200, v.dataset.approx);
+    });
+    // the 17-mark swing: spotlight 2025 vs 2023, then draw the bracket
+    const sp = 4500;
+    [0,1,3,5].forEach(i => {
+      A(bars[i], [{opacity:1},{opacity:.28, offset:.2},{opacity:.28, offset:.8},{opacity:1}], {duration:2600, delay:sp, easing:SOFT, fill:'none'});
+      A(vals[i], [{opacity:1},{opacity:.28, offset:.2},{opacity:.28, offset:.8},{opacity:1}], {duration:2600, delay:sp, easing:SOFT, fill:'none'});
+    });
+    A(q('.bracket',s), [{transform:'scaleY(0)'},{transform:'none'}], {duration:1100, delay:sp+300});
+    A(q('.note',s), [{opacity:0, transform:'translateY(14px)', filter:'blur(4px)'},{opacity:1, transform:'none', filter:'blur(0)'}], {duration:900, delay:sp+800});
+  }
+};
+
+/* ---------- deck controller ---------- */
+const slides = [...document.querySelectorAll('.slide')];
+let cur = -1;
+function stopAll() { running.forEach(a => a.cancel()); running = []; document.querySelectorAll('[data-v],#wk,#dy').forEach(e => e._stop = true); }
+function play(i) {
+  stopAll();
+  const s = slides[i];
+  // restore final text for counters before animating
+  s.querySelectorAll('.v').forEach(v => v.textContent = (v.dataset.approx||'') + (v.dataset.approx ? (+v.dataset.v) : (+v.dataset.v).toFixed(2)));
+  const wk = s.querySelector('#wk'); if (wk) { wk.textContent = '32'; s.querySelector('#dy').textContent = '226'; }
+  if (!reduce) scenes[s.dataset.n](s);
+}
+function go(i, dir = 1) {
+  i = Math.max(0, Math.min(slides.length - 1, i));
+  if (i === cur) return;
+  const prev = slides[cur];
+  cur = i;
+  const s = slides[i];
+  s.classList.add('on'); s.style.zIndex = 2;
+  if (prev) {
+    prev.style.zIndex = 1;
+    if (!reduce) {
+      s.animate([{opacity:0},{opacity:1}], {duration:700, easing:SOFT});
+      const out = prev.animate([{opacity:1, transform:'none'},{opacity:0, transform:`scale(.97) translateX(${-40*dir}px)`}], {duration:700, easing:SOFT});
+      out.onfinish = () => { if (slides[cur] !== prev) prev.classList.remove('on'); };
+    } else prev.classList.remove('on');
+  }
+  play(i);
+  try { history.replaceState(null, '', '#s' + s.dataset.n); } catch (e) {}
+}
+
+function fit() {
+  const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+  document.getElementById('stage').style.transform = `translate(-50%,-50%) scale(${k})`;
+}
+addEventListener('resize', fit); fit();
+
+addEventListener('keydown', e => {
+  if (['ArrowRight','PageDown',' ','Enter'].includes(e.key)) { e.preventDefault(); go(cur + 1, 1); }
+  else if (['ArrowLeft','PageUp','Backspace'].includes(e.key)) { e.preventDefault(); go(cur - 1, -1); }
+  else if (e.key === 'Home') go(0, -1);
+  else if (e.key === 'End') go(slides.length - 1, 1);
+  else if (e.key.toLowerCase() === 'r') play(cur);
+  else if (e.key.toLowerCase() === 'f') { const d = document; (d.fullscreenElement ? d.exitFullscreen() : d.documentElement.requestFullscreen()).catch(()=>{}); }
+});
+document.getElementById('viewport').addEventListener('click', e => go(cur + (e.clientX > innerWidth * 0.25 ? 1 : -1), e.clientX > innerWidth * 0.25 ? 1 : -1));
+document.getElementById('next').onclick = () => go(cur + 1, 1);
+document.getElementById('prev').onclick = () => go(cur - 1, -1);
+document.getElementById('replay').onclick = () => play(cur);
+let idle;
+addEventListener('mousemove', () => { document.body.classList.add('mouse'); clearTimeout(idle); idle = setTimeout(() => document.body.classList.remove('mouse'), 1800); });
+
+const start = slides.findIndex(s => '#s' + s.dataset.n === location.hash);
+document.fonts.ready.then(() => go(start < 0 ? 0 : start));
+})();
+</script>
