@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s15</title></head>
+  <body>
+    <template>
+      <style>
+#s15 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s15 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s15 .exit { position:absolute; inset:0; }
+#s15 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s15 .block.low { bottom:140px; }
+#s15 .block.top { top:140px; }
+#s15 .block.mid { top:0; bottom:0; justify-content:center; }
+#s15 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s15 .gap20 { gap:20px; } #s15 .gap24 { gap:24px; } #s15 .gap28 { gap:28px; } #s15 .gap32 { gap:32px; } #s15 .gap44 { gap:44px; }
+#s15 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s15 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s15 .line, #s15 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s15 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s15 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s15 .muted { color:#8A8780; }
+#s15 .accent { color:#C8642A; }
+#s15 .w { display:inline-block; white-space:pre; }
+#s15 .gapb { margin-top:36px; }
+#s15 .ty { position:relative; white-space:nowrap; }
+#s15 .ch { opacity:0; }
+#s15 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s15 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s15 .stat .suf { display:inline-block; }
+#s15 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s15 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s15 .redact.sm { width:420px; height:30px; }
+#s15 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s15 .score .val { display:inline-block; }
+#s15 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s15 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s15 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s15 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s15 .sub { margin-top:18px; }
+#s15 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s15 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s15 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s15 .pair { display:flex; gap:180px; }
+#s15 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s15 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s15 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s15 .fan { position:absolute; left:0; top:0; }
+#s15 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s15 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s15 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s15 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s15 .brow .node { position:relative; }
+#s15 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s15 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s15 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s15 .st { align-self:flex-start; }
+#s15 .slots { display:flex; gap:80px; margin-top:44px; }
+#s15 .slot { display:flex; align-items:baseline; gap:20px; }
+#s15 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s15 .crow { display:flex; align-items:baseline; gap:30px; }
+#s15 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s15 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s15 .closing .wordmark { font-size:120px; }
+#s15 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s15 .feat { font-size:36px; font-weight:400; }
+#s15 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s15" data-composition-id="s15" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low gap20"><div class="label accent lab">ELEVATE IGP</div><div class="stmt"><span class="w">Your </span><span class="w">DAF, </span><span class="w">checked </span><span class="w">against </span><span class="w">20 </span><span class="w">defects.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 13.87;
+          var root = document.getElementById("s15");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var t = ELV.fadeUp(tl, root.querySelector('.lab'), 0.4, { dur: 0.7, y: 16 });
+    ELV.stagger(tl, root.querySelectorAll('.block > div:not(.lab)'), t - 0.25, 0.35);
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s15"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

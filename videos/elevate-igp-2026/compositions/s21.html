@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s21</title></head>
+  <body>
+    <template>
+      <style>
+#s21 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s21 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s21 .exit { position:absolute; inset:0; }
+#s21 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s21 .block.low { bottom:140px; }
+#s21 .block.top { top:140px; }
+#s21 .block.mid { top:0; bottom:0; justify-content:center; }
+#s21 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s21 .gap20 { gap:20px; } #s21 .gap24 { gap:24px; } #s21 .gap28 { gap:28px; } #s21 .gap32 { gap:32px; } #s21 .gap44 { gap:44px; }
+#s21 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s21 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s21 .line, #s21 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s21 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s21 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s21 .muted { color:#8A8780; }
+#s21 .accent { color:#C8642A; }
+#s21 .w { display:inline-block; white-space:pre; }
+#s21 .gapb { margin-top:36px; }
+#s21 .ty { position:relative; white-space:nowrap; }
+#s21 .ch { opacity:0; }
+#s21 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s21 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s21 .stat .suf { display:inline-block; }
+#s21 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s21 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s21 .redact.sm { width:420px; height:30px; }
+#s21 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s21 .score .val { display:inline-block; }
+#s21 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s21 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s21 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s21 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s21 .sub { margin-top:18px; }
+#s21 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s21 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s21 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s21 .pair { display:flex; gap:180px; }
+#s21 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s21 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s21 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s21 .fan { position:absolute; left:0; top:0; }
+#s21 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s21 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s21 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s21 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s21 .brow .node { position:relative; }
+#s21 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s21 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s21 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s21 .st { align-self:flex-start; }
+#s21 .slots { display:flex; gap:80px; margin-top:44px; }
+#s21 .slot { display:flex; align-items:baseline; gap:20px; }
+#s21 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s21 .crow { display:flex; align-items:baseline; gap:30px; }
+#s21 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s21 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s21 .closing .wordmark { font-size:120px; }
+#s21 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s21 .feat { font-size:36px; font-weight:400; }
+#s21 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s21" data-composition-id="s21" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="anchorword hero centre">Practising Yoga</div>
+      <svg class="fan" width="1920" height="1080" viewBox="0 0 1920 1080"><line class="conn" x1="600" y1="540" x2="1102" y2="176" /><line class="conn" x1="600" y1="540" x2="1190" y2="348" /><line class="conn" x1="600" y1="540" x2="1220" y2="540" /><line class="conn" x1="600" y1="540" x2="1190" y2="732" /><line class="conn" x1="600" y1="540" x2="1102" y2="904" /></svg><div class="dot" style="left:1095px;top:169px"></div><div class="dot" style="left:1183px;top:341px"></div><div class="dot" style="left:1213px;top:533px"></div><div class="dot" style="left:1183px;top:725px"></div><div class="dot" style="left:1095px;top:897px"></div><div class="node line-s" style="left:1130px;top:142px">Ashtanga</div><div class="node line-s" style="left:1218px;top:314px">Surya Namaskar</div><div class="node line-s" style="left:1248px;top:506px">Hatha</div><div class="node line-s" style="left:1218px;top:698px">Meditation</div><div class="node line-s" style="left:1130px;top:870px">Yoga as policy</div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 8.97;
+          var root = document.getElementById("s21");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var centre = root.querySelector('.centre');
+    tl.fromTo(centre, { scale: 1 }, { scale: 0.42424242424242425, duration: 1.1, ease: 'expo.inOut' }, 0.3);
+    var conns = root.querySelectorAll('.conn'), dots = root.querySelectorAll('.dot'), nodes = root.querySelectorAll('.node');
+    conns.forEach(function (c, i) {
+      var len = Math.hypot(c.x2.baseVal.value - c.x1.baseVal.value, c.y2.baseVal.value - c.y1.baseVal.value);
+      var at = 1.2 + i * 0.5;
+      tl.fromTo(c, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.45, ease: 'power2.out' }, at);
+      tl.fromTo(dots[i], { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(2.2)' }, at + 0.3);
+      ELV.fadeUp(tl, nodes[i], at + 0.32, { dur: 0.6, y: 12 });
+    });
+    
+            
+            
+            window.__timelines["s21"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

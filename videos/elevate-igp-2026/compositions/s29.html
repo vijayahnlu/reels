@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s29</title></head>
+  <body>
+    <template>
+      <style>
+#s29 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s29 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s29 .exit { position:absolute; inset:0; }
+#s29 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s29 .block.low { bottom:140px; }
+#s29 .block.top { top:140px; }
+#s29 .block.mid { top:0; bottom:0; justify-content:center; }
+#s29 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s29 .gap20 { gap:20px; } #s29 .gap24 { gap:24px; } #s29 .gap28 { gap:28px; } #s29 .gap32 { gap:32px; } #s29 .gap44 { gap:44px; }
+#s29 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s29 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s29 .line, #s29 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s29 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s29 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s29 .muted { color:#8A8780; }
+#s29 .accent { color:#C8642A; }
+#s29 .w { display:inline-block; white-space:pre; }
+#s29 .gapb { margin-top:36px; }
+#s29 .ty { position:relative; white-space:nowrap; }
+#s29 .ch { opacity:0; }
+#s29 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s29 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s29 .stat .suf { display:inline-block; }
+#s29 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s29 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s29 .redact.sm { width:420px; height:30px; }
+#s29 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s29 .score .val { display:inline-block; }
+#s29 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s29 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s29 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s29 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s29 .sub { margin-top:18px; }
+#s29 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s29 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s29 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s29 .pair { display:flex; gap:180px; }
+#s29 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s29 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s29 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s29 .fan { position:absolute; left:0; top:0; }
+#s29 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s29 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s29 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s29 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s29 .brow .node { position:relative; }
+#s29 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s29 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s29 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s29 .st { align-self:flex-start; }
+#s29 .slots { display:flex; gap:80px; margin-top:44px; }
+#s29 .slot { display:flex; align-items:baseline; gap:20px; }
+#s29 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s29 .crow { display:flex; align-items:baseline; gap:30px; }
+#s29 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s29 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s29 .closing .wordmark { font-size:120px; }
+#s29 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s29 .feat { font-size:36px; font-weight:400; }
+#s29 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s29" data-composition-id="s29" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low gap20"><div class="stmt"><span class="w">Your </span><span class="w">position, </span><span class="w">in </span><span class="w">the </span><span class="w">first </span><span class="w">sentence.</span></div><div class="stmt"><span class="w">A </span><span class="w">reason </span><span class="w">that </span><span class="w">survives </span><span class="w">one </span><span class="w">push.</span></div><div class="stmt"><span class="w">What </span><span class="w">honestly </span><span class="w">cuts </span><span class="w">against </span><span class="w">you.</span></div><div class="stmt accent gapb"><span class="w">Then </span><span class="w">stop.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 41.07;
+          var root = document.getElementById("s29");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            ELV.stagger(tl, root.querySelectorAll('.block > div'), 0.4, 0.35);
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s29"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

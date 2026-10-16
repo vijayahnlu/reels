@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s03</title></head>
+  <body>
+    <template>
+      <style>
+#s03 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s03 .drift { position:absolute; inset:0; transform-origin:50% 50%; }
+#s03 .exit { position:absolute; inset:0; }
+#s03 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s03 .block.low { bottom:140px; }
+#s03 .block.top { top:140px; }
+#s03 .block.mid { top:0; bottom:0; justify-content:center; }
+#s03 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s03 .gap20 { gap:20px; } #s03 .gap24 { gap:24px; } #s03 .gap28 { gap:28px; } #s03 .gap32 { gap:32px; } #s03 .gap44 { gap:44px; }
+#s03 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s03 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s03 .line, #s03 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s03 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s03 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s03 .muted { color:#8A8780; }
+#s03 .accent { color:#C8642A; }
+#s03 .w { display:inline-block; white-space:pre; }
+#s03 .gapb { margin-top:36px; }
+#s03 .ty { position:relative; white-space:nowrap; }
+#s03 .ch { opacity:0; }
+#s03 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s03 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s03 .stat .suf { display:inline-block; }
+#s03 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s03 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s03 .redact.sm { width:420px; height:30px; }
+#s03 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s03 .score .val { display:inline-block; }
+#s03 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s03 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s03 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s03 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s03 .sub { margin-top:18px; }
+#s03 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s03 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s03 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s03 .pair { display:flex; gap:180px; }
+#s03 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s03 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s03 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s03 .fan { position:absolute; left:0; top:0; }
+#s03 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s03 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s03 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s03 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s03 .brow .node { position:relative; }
+#s03 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s03 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s03 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s03 .st { align-self:flex-start; }
+#s03 .slots { display:flex; gap:80px; margin-top:44px; }
+#s03 .slot { display:flex; align-items:baseline; gap:20px; }
+#s03 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s03 .crow { display:flex; align-items:baseline; gap:30px; }
+#s03 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s03 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s03 .closing .wordmark { font-size:120px; }
+#s03 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s03 .feat { font-size:36px; font-weight:400; }
+#s03 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s03" data-composition-id="s03" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block center"><div class="wordmark"><span class="w">E</span><span class="w">L</span><span class="w">E</span><span class="w">V</span><span class="w">A</span><span class="w">T</span><span class="w">E</span></div><div class="line-s muted sub" id="s03-sub">Interview Guidance Program 2026</div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 5.22;
+          var root = document.getElementById("s03");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var t = ELV.fadeUp(tl, root.querySelectorAll('.wordmark .w'), 0.4, { stagger: 0.07, dur: 1.0, y: 30 });
+    ELV.fadeUp(tl, root.querySelector('.sub'), t - 0.3, { dur: 0.9 });
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s03"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

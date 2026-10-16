@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s27</title></head>
+  <body>
+    <template>
+      <style>
+#s27 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s27 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s27 .exit { position:absolute; inset:0; }
+#s27 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s27 .block.low { bottom:140px; }
+#s27 .block.top { top:140px; }
+#s27 .block.mid { top:0; bottom:0; justify-content:center; }
+#s27 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s27 .gap20 { gap:20px; } #s27 .gap24 { gap:24px; } #s27 .gap28 { gap:28px; } #s27 .gap32 { gap:32px; } #s27 .gap44 { gap:44px; }
+#s27 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s27 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s27 .line, #s27 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s27 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s27 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s27 .muted { color:#8A8780; }
+#s27 .accent { color:#C8642A; }
+#s27 .w { display:inline-block; white-space:pre; }
+#s27 .gapb { margin-top:36px; }
+#s27 .ty { position:relative; white-space:nowrap; }
+#s27 .ch { opacity:0; }
+#s27 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s27 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s27 .stat .suf { display:inline-block; }
+#s27 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s27 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s27 .redact.sm { width:420px; height:30px; }
+#s27 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s27 .score .val { display:inline-block; }
+#s27 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s27 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s27 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s27 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s27 .sub { margin-top:18px; }
+#s27 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s27 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s27 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s27 .pair { display:flex; gap:180px; }
+#s27 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s27 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s27 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s27 .fan { position:absolute; left:0; top:0; }
+#s27 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s27 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s27 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s27 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s27 .brow .node { position:relative; }
+#s27 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s27 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s27 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s27 .st { align-self:flex-start; }
+#s27 .slots { display:flex; gap:80px; margin-top:44px; }
+#s27 .slot { display:flex; align-items:baseline; gap:20px; }
+#s27 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s27 .crow { display:flex; align-items:baseline; gap:30px; }
+#s27 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s27 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s27 .closing .wordmark { font-size:120px; }
+#s27 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s27 .feat { font-size:36px; font-weight:400; }
+#s27 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s27" data-composition-id="s27" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low"><div class="secno accent">03</div><div class="stmt head"><span class="w">Opinion </span><span class="w">questions </span><span class="w">take </span><span class="w">the </span><span class="w">most </span><span class="w">work.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 7.75;
+          var root = document.getElementById("s27");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var t = ELV.fadeUp(tl, root.querySelector('.secno'), 0.4, { dur: 0.9, y: 40 });
+    t = ELV.fadeUp(tl, root.querySelectorAll('.head .w'), 0.75, { stagger: 0.06 });
+    var sub = root.querySelector('.sub'); if (sub) ELV.fadeUp(tl, sub, t - 0.2);
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s27"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

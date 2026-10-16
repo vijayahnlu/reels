@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s12</title></head>
+  <body>
+    <template>
+      <style>
+#s12 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s12 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s12 .exit { position:absolute; inset:0; }
+#s12 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s12 .block.low { bottom:140px; }
+#s12 .block.top { top:140px; }
+#s12 .block.mid { top:0; bottom:0; justify-content:center; }
+#s12 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s12 .gap20 { gap:20px; } #s12 .gap24 { gap:24px; } #s12 .gap28 { gap:28px; } #s12 .gap32 { gap:32px; } #s12 .gap44 { gap:44px; }
+#s12 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s12 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s12 .line, #s12 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s12 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s12 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s12 .muted { color:#8A8780; }
+#s12 .accent { color:#C8642A; }
+#s12 .w { display:inline-block; white-space:pre; }
+#s12 .gapb { margin-top:36px; }
+#s12 .ty { position:relative; white-space:nowrap; }
+#s12 .ch { opacity:0; }
+#s12 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s12 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s12 .stat .suf { display:inline-block; }
+#s12 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s12 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s12 .redact.sm { width:420px; height:30px; }
+#s12 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s12 .score .val { display:inline-block; }
+#s12 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s12 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s12 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s12 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s12 .sub { margin-top:18px; }
+#s12 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s12 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s12 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s12 .pair { display:flex; gap:180px; }
+#s12 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s12 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s12 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s12 .fan { position:absolute; left:0; top:0; }
+#s12 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s12 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s12 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s12 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s12 .brow .node { position:relative; }
+#s12 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s12 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s12 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s12 .st { align-self:flex-start; }
+#s12 .slots { display:flex; gap:80px; margin-top:44px; }
+#s12 .slot { display:flex; align-items:baseline; gap:20px; }
+#s12 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s12 .crow { display:flex; align-items:baseline; gap:30px; }
+#s12 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s12 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s12 .closing .wordmark { font-size:120px; }
+#s12 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s12 .feat { font-size:36px; font-weight:400; }
+#s12 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s12" data-composition-id="s12" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block mid"><div class="stmt" id="s12-st"><span class="w">They&#x27;ve </span><span class="w">read </span><span class="w">it </span><span class="w">more </span><span class="w">carefully </span><span class="w">than </span><span class="w">you </span><span class="w">wrote </span><span class="w">it.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 24.09;
+          var root = document.getElementById("s12");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            var ws = root.querySelectorAll('.w'); ELV.fadeUp(tl, ws, 0.4, { stagger: 0.07, dur: 0.9 });
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s12"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

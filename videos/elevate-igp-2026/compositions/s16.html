@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s16</title></head>
+  <body>
+    <template>
+      <style>
+#s16 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s16 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s16 .exit { position:absolute; inset:0; }
+#s16 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s16 .block.low { bottom:140px; }
+#s16 .block.top { top:140px; }
+#s16 .block.mid { top:0; bottom:0; justify-content:center; }
+#s16 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s16 .gap20 { gap:20px; } #s16 .gap24 { gap:24px; } #s16 .gap28 { gap:28px; } #s16 .gap32 { gap:32px; } #s16 .gap44 { gap:44px; }
+#s16 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s16 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s16 .line, #s16 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s16 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s16 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s16 .muted { color:#8A8780; }
+#s16 .accent { color:#C8642A; }
+#s16 .w { display:inline-block; white-space:pre; }
+#s16 .gapb { margin-top:36px; }
+#s16 .ty { position:relative; white-space:nowrap; }
+#s16 .ch { opacity:0; }
+#s16 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s16 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s16 .stat .suf { display:inline-block; }
+#s16 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s16 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s16 .redact.sm { width:420px; height:30px; }
+#s16 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s16 .score .val { display:inline-block; }
+#s16 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s16 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s16 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s16 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s16 .sub { margin-top:18px; }
+#s16 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s16 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s16 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s16 .pair { display:flex; gap:180px; }
+#s16 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s16 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s16 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s16 .fan { position:absolute; left:0; top:0; }
+#s16 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s16 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s16 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s16 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s16 .brow .node { position:relative; }
+#s16 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s16 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s16 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s16 .st { align-self:flex-start; }
+#s16 .slots { display:flex; gap:80px; margin-top:44px; }
+#s16 .slot { display:flex; align-items:baseline; gap:20px; }
+#s16 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s16 .crow { display:flex; align-items:baseline; gap:30px; }
+#s16 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s16 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s16 .closing .wordmark { font-size:120px; }
+#s16 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s16 .feat { font-size:36px; font-weight:400; }
+#s16 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s16" data-composition-id="s16" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low"><div class="secno accent">02</div><div class="stmt head"><span class="w">Stop </span><span class="w">guessing. </span><span class="w">Start </span><span class="w">knowing.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 4.76;
+          var root = document.getElementById("s16");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var t = ELV.fadeUp(tl, root.querySelector('.secno'), 0.4, { dur: 0.9, y: 40 });
+    t = ELV.fadeUp(tl, root.querySelectorAll('.head .w'), 0.75, { stagger: 0.06 });
+    var sub = root.querySelector('.sub'); if (sub) ELV.fadeUp(tl, sub, t - 0.2);
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s16"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

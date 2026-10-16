@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s18</title></head>
+  <body>
+    <template>
+      <style>
+#s18 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s18 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s18 .exit { position:absolute; inset:0; }
+#s18 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s18 .block.low { bottom:140px; }
+#s18 .block.top { top:140px; }
+#s18 .block.mid { top:0; bottom:0; justify-content:center; }
+#s18 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s18 .gap20 { gap:20px; } #s18 .gap24 { gap:24px; } #s18 .gap28 { gap:28px; } #s18 .gap32 { gap:32px; } #s18 .gap44 { gap:44px; }
+#s18 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s18 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s18 .line, #s18 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s18 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s18 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s18 .muted { color:#8A8780; }
+#s18 .accent { color:#C8642A; }
+#s18 .w { display:inline-block; white-space:pre; }
+#s18 .gapb { margin-top:36px; }
+#s18 .ty { position:relative; white-space:nowrap; }
+#s18 .ch { opacity:0; }
+#s18 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s18 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s18 .stat .suf { display:inline-block; }
+#s18 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s18 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s18 .redact.sm { width:420px; height:30px; }
+#s18 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s18 .score .val { display:inline-block; }
+#s18 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s18 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s18 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s18 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s18 .sub { margin-top:18px; }
+#s18 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s18 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s18 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s18 .pair { display:flex; gap:180px; }
+#s18 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s18 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s18 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s18 .fan { position:absolute; left:0; top:0; }
+#s18 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s18 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s18 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s18 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s18 .brow .node { position:relative; }
+#s18 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s18 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s18 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s18 .st { align-self:flex-start; }
+#s18 .slots { display:flex; gap:80px; margin-top:44px; }
+#s18 .slot { display:flex; align-items:baseline; gap:20px; }
+#s18 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s18 .crow { display:flex; align-items:baseline; gap:30px; }
+#s18 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s18 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s18 .closing .wordmark { font-size:120px; }
+#s18 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s18 .feat { font-size:36px; font-weight:400; }
+#s18 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s18" data-composition-id="s18" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block top"><div class="thead"><span class="redact sm"></span><span class="label muted"> · CSE 2026</span></div><div class="trow"><span class="tl line-s">Law graduate</span><span class="tr accent"><span class="tnum" data-to="57">57</span> questions</span></div><div class="trow"><span class="tl line-s">Home state, Bihar</span><span class="tr accent"><span class="tnum" data-to="29">29</span></span></div><div class="trow"><span class="tl line-s">Legal associate, private firm</span><span class="tr accent"><span class="tnum" data-to="19">19</span></span></div><div class="trow"><span class="tl line-s">Yoga, mystery novels</span><span class="tr accent"><span class="tnum" data-to="18">18</span></span></div><div class="trow"><span class="tl line-s">Debating, quizzing</span><span class="tr accent"><span class="tnum" data-to="6">6</span></span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 28.03;
+          var root = document.getElementById("s18");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    ELV.fadeUp(tl, root.querySelector('.thead'), 0.4, { dur: 0.7, y: 16 });
+    var rows = root.querySelectorAll('.trow');
+    rows.forEach(function (r, i) {
+      var at = 1.0 + i * 0.5;
+      ELV.fadeUp(tl, r, at);
+      var nEl = r.querySelector('.tnum'); ELV.countUp(tl, nEl, at + 0.1, +nEl.dataset.to, { dur: 1.2 });
+    });
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s18"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

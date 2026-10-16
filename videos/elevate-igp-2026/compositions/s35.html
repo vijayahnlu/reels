@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s35</title></head>
+  <body>
+    <template>
+      <style>
+#s35 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s35 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s35 .exit { position:absolute; inset:0; }
+#s35 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s35 .block.low { bottom:140px; }
+#s35 .block.top { top:140px; }
+#s35 .block.mid { top:0; bottom:0; justify-content:center; }
+#s35 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s35 .gap20 { gap:20px; } #s35 .gap24 { gap:24px; } #s35 .gap28 { gap:28px; } #s35 .gap32 { gap:32px; } #s35 .gap44 { gap:44px; }
+#s35 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s35 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s35 .line, #s35 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s35 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s35 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s35 .muted { color:#8A8780; }
+#s35 .accent { color:#C8642A; }
+#s35 .w { display:inline-block; white-space:pre; }
+#s35 .gapb { margin-top:36px; }
+#s35 .ty { position:relative; white-space:nowrap; }
+#s35 .ch { opacity:0; }
+#s35 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s35 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s35 .stat .suf { display:inline-block; }
+#s35 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s35 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s35 .redact.sm { width:420px; height:30px; }
+#s35 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s35 .score .val { display:inline-block; }
+#s35 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s35 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s35 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s35 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s35 .sub { margin-top:18px; }
+#s35 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s35 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s35 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s35 .pair { display:flex; gap:180px; }
+#s35 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s35 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s35 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s35 .fan { position:absolute; left:0; top:0; }
+#s35 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s35 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s35 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s35 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s35 .brow .node { position:relative; }
+#s35 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s35 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s35 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s35 .st { align-self:flex-start; }
+#s35 .slots { display:flex; gap:80px; margin-top:44px; }
+#s35 .slot { display:flex; align-items:baseline; gap:20px; }
+#s35 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s35 .crow { display:flex; align-items:baseline; gap:30px; }
+#s35 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s35 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s35 .closing .wordmark { font-size:120px; }
+#s35 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s35 .feat { font-size:36px; font-weight:400; }
+#s35 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s35" data-composition-id="s35" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block mid"><div class="stmt" id="s35-st"><span class="w">Are </span><span class="w">you </span><span class="w">winning </span><span class="w">the </span><span class="w">argument </span><span class="w">and </span><span class="w">losing </span><span class="w">the </span><span class="w">interview?</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 23.24;
+          var root = document.getElementById("s35");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            var ws = root.querySelectorAll('.w'); ELV.fadeUp(tl, ws, 0.4, { stagger: 0.07, dur: 0.9 });
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s35"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

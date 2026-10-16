@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s23</title></head>
+  <body>
+    <template>
+      <style>
+#s23 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s23 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s23 .exit { position:absolute; inset:0; }
+#s23 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s23 .block.low { bottom:140px; }
+#s23 .block.top { top:140px; }
+#s23 .block.mid { top:0; bottom:0; justify-content:center; }
+#s23 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s23 .gap20 { gap:20px; } #s23 .gap24 { gap:24px; } #s23 .gap28 { gap:28px; } #s23 .gap32 { gap:32px; } #s23 .gap44 { gap:44px; }
+#s23 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s23 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s23 .line, #s23 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s23 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s23 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s23 .muted { color:#8A8780; }
+#s23 .accent { color:#C8642A; }
+#s23 .w { display:inline-block; white-space:pre; }
+#s23 .gapb { margin-top:36px; }
+#s23 .ty { position:relative; white-space:nowrap; }
+#s23 .ch { opacity:0; }
+#s23 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s23 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s23 .stat .suf { display:inline-block; }
+#s23 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s23 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s23 .redact.sm { width:420px; height:30px; }
+#s23 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s23 .score .val { display:inline-block; }
+#s23 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s23 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s23 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s23 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s23 .sub { margin-top:18px; }
+#s23 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s23 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s23 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s23 .pair { display:flex; gap:180px; }
+#s23 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s23 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s23 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s23 .fan { position:absolute; left:0; top:0; }
+#s23 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s23 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s23 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s23 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s23 .brow .node { position:relative; }
+#s23 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s23 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s23 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s23 .st { align-self:flex-start; }
+#s23 .slots { display:flex; gap:80px; margin-top:44px; }
+#s23 .slot { display:flex; align-items:baseline; gap:20px; }
+#s23 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s23 .crow { display:flex; align-items:baseline; gap:30px; }
+#s23 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s23 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s23 .closing .wordmark { font-size:120px; }
+#s23 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s23 .feat { font-size:36px; font-weight:400; }
+#s23 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s23" data-composition-id="s23" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low gap44"><div class="inst"><div class="line-s q">At which stage of yoga are you?</div><div class="stampstrip"><span class="stamp">Chairman · 2022</span></div></div><div class="inst"><div class="line-s q">Should people of your age be pursuing spirituality?</div><div class="stampstrip"><span class="stamp">M1 · Apr 2025</span></div></div><div class="inst"><div class="line-s q">Yoga started as a quest for moksha but has been reduced to physical activity. Why?</div><div class="stampstrip"><span class="stamp">Chairman · Feb 2026</span></div></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 21.86;
+          var root = document.getElementById("s23");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            ELV.stagger(tl, root.querySelectorAll('.inst'), 0.4, 1.2);
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s23"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s01</title></head>
+  <body>
+    <template>
+      <style>
+#s01 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s01 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s01 .exit { position:absolute; inset:0; }
+#s01 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s01 .block.low { bottom:140px; }
+#s01 .block.top { top:140px; }
+#s01 .block.mid { top:0; bottom:0; justify-content:center; }
+#s01 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s01 .gap20 { gap:20px; } #s01 .gap24 { gap:24px; } #s01 .gap28 { gap:28px; } #s01 .gap32 { gap:32px; } #s01 .gap44 { gap:44px; }
+#s01 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s01 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s01 .line, #s01 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s01 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s01 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s01 .muted { color:#8A8780; }
+#s01 .accent { color:#C8642A; }
+#s01 .w { display:inline-block; white-space:pre; }
+#s01 .gapb { margin-top:36px; }
+#s01 .ty { position:relative; white-space:nowrap; }
+#s01 .ch { opacity:0; }
+#s01 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s01 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s01 .stat .suf { display:inline-block; }
+#s01 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s01 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s01 .redact.sm { width:420px; height:30px; }
+#s01 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s01 .score .val { display:inline-block; }
+#s01 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s01 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s01 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s01 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s01 .sub { margin-top:18px; }
+#s01 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s01 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s01 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s01 .pair { display:flex; gap:180px; }
+#s01 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s01 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s01 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s01 .fan { position:absolute; left:0; top:0; }
+#s01 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s01 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s01 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s01 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s01 .brow .node { position:relative; }
+#s01 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s01 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s01 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s01 .st { align-self:flex-start; }
+#s01 .slots { display:flex; gap:80px; margin-top:44px; }
+#s01 .slot { display:flex; align-items:baseline; gap:20px; }
+#s01 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s01 .crow { display:flex; align-items:baseline; gap:30px; }
+#s01 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s01 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s01 .closing .wordmark { font-size:120px; }
+#s01 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s01 .feat { font-size:36px; font-weight:400; }
+#s01 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s01" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block low gap28"><div class="ty line-s" id="s01-l0"><span class="ch">W</span><span class="ch">h</span><span class="ch">e</span><span class="ch">r</span><span class="ch">e</span><span class="ch">&nbsp;</span><span class="ch">i</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">t</span><span class="ch">h</span><span class="ch">e</span><span class="ch">&nbsp;</span><span class="ch">B</span><span class="ch">i</span><span class="ch">h</span><span class="ch">a</span><span class="ch">r</span><span class="ch">&nbsp;</span><span class="ch">S</span><span class="ch">c</span><span class="ch">h</span><span class="ch">o</span><span class="ch">o</span><span class="ch">l</span><span class="ch">&nbsp;</span><span class="ch">o</span><span class="ch">f</span><span class="ch">&nbsp;</span><span class="ch">Y</span><span class="ch">o</span><span class="ch">g</span><span class="ch">a</span><span class="ch">&nbsp;</span><span class="ch">l</span><span class="ch">o</span><span class="ch">c</span><span class="ch">a</span><span class="ch">t</span><span class="ch">e</span><span class="ch">d</span><span class="ch">?</span><span class="cur"></span></div><div class="ty line-s" id="s01-l1"><span class="ch">W</span><span class="ch">h</span><span class="ch">a</span><span class="ch">t</span><span class="ch">&nbsp;</span><span class="ch">i</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">Y</span><span class="ch">o</span><span class="ch">g</span><span class="ch">a</span><span class="ch">&nbsp;</span><span class="ch">N</span><span class="ch">i</span><span class="ch">d</span><span class="ch">r</span><span class="ch">a</span><span class="ch">,</span><span class="ch">&nbsp;</span><span class="ch">a</span><span class="ch">n</span><span class="ch">d</span><span class="ch">&nbsp;</span><span class="ch">w</span><span class="ch">h</span><span class="ch">y</span><span class="ch">&nbsp;</span><span class="ch">d</span><span class="ch">o</span><span class="ch">&nbsp;</span><span class="ch">p</span><span class="ch">e</span><span class="ch">o</span><span class="ch">p</span><span class="ch">l</span><span class="ch">e</span><span class="ch">&nbsp;</span><span class="ch">d</span><span class="ch">o</span><span class="ch">&nbsp;</span><span class="ch">i</span><span class="ch">t</span><span class="ch">?</span><span class="cur"></span></div><div class="ty line-s" id="s01-l2"><span class="ch">I</span><span class="ch">f</span><span class="ch">&nbsp;</span><span class="ch">y</span><span class="ch">o</span><span class="ch">u</span><span class="ch">&nbsp;</span><span class="ch">w</span><span class="ch">e</span><span class="ch">r</span><span class="ch">e</span><span class="ch">&nbsp;</span><span class="ch">o</span><span class="ch">f</span><span class="ch">f</span><span class="ch">e</span><span class="ch">r</span><span class="ch">e</span><span class="ch">d</span><span class="ch">&nbsp;</span><span class="ch">M</span><span class="ch">o</span><span class="ch">k</span><span class="ch">s</span><span class="ch">h</span><span class="ch">a</span><span class="ch">&nbsp;</span><span class="ch">r</span><span class="ch">i</span><span class="ch">g</span><span class="ch">h</span><span class="ch">t</span><span class="ch">&nbsp;</span><span class="ch">n</span><span class="ch">o</span><span class="ch">w</span><span class="ch">,</span><span class="ch">&nbsp;</span><span class="ch">w</span><span class="ch">o</span><span class="ch">u</span><span class="ch">l</span><span class="ch">d</span><span class="ch">&nbsp;</span><span class="ch">y</span><span class="ch">o</span><span class="ch">u</span><span class="ch">&nbsp;</span><span class="ch">a</span><span class="ch">c</span><span class="ch">c</span><span class="ch">e</span><span class="ch">p</span><span class="ch">t</span><span class="ch">?</span><span class="cur"></span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 33.00;
+          var root = document.getElementById("s01");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var lines = root.querySelectorAll('.ty'); var t = 0.4;
+    lines.forEach(function (ln, i) {
+      if (i > 0) tl.set(lines[i - 1].querySelector('.cur'), { opacity: 0 }, t);
+      t = ELV.typeOn(tl, ln, t, 1.2) + 0.35;
+    });
+    ELV.blink(tl, lines[lines.length - 1].querySelector('.cur'), t - 0.35, DUR - 0.8);
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s01"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s22</title></head>
+  <body>
+    <template>
+      <style>
+#s22 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s22 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s22 .exit { position:absolute; inset:0; }
+#s22 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s22 .block.low { bottom:140px; }
+#s22 .block.top { top:140px; }
+#s22 .block.mid { top:0; bottom:0; justify-content:center; }
+#s22 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s22 .gap20 { gap:20px; } #s22 .gap24 { gap:24px; } #s22 .gap28 { gap:28px; } #s22 .gap32 { gap:32px; } #s22 .gap44 { gap:44px; }
+#s22 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s22 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s22 .line, #s22 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s22 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s22 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s22 .muted { color:#8A8780; }
+#s22 .accent { color:#C8642A; }
+#s22 .w { display:inline-block; white-space:pre; }
+#s22 .gapb { margin-top:36px; }
+#s22 .ty { position:relative; white-space:nowrap; }
+#s22 .ch { opacity:0; }
+#s22 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s22 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s22 .stat .suf { display:inline-block; }
+#s22 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s22 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s22 .redact.sm { width:420px; height:30px; }
+#s22 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s22 .score .val { display:inline-block; }
+#s22 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s22 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s22 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s22 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s22 .sub { margin-top:18px; }
+#s22 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s22 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s22 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s22 .pair { display:flex; gap:180px; }
+#s22 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s22 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s22 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s22 .fan { position:absolute; left:0; top:0; }
+#s22 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s22 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s22 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s22 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s22 .brow .node { position:relative; }
+#s22 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s22 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s22 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s22 .st { align-self:flex-start; }
+#s22 .slots { display:flex; gap:80px; margin-top:44px; }
+#s22 .slot { display:flex; align-items:baseline; gap:20px; }
+#s22 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s22 .crow { display:flex; align-items:baseline; gap:30px; }
+#s22 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s22 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s22 .closing .wordmark { font-size:120px; }
+#s22 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s22 .feat { font-size:36px; font-weight:400; }
+#s22 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s22" data-composition-id="s22" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="anchorword hero centre" style="transform:scale(0.42424242424242425)">Practising Yoga</div>
+      <svg class="fan" width="1920" height="1080" viewBox="0 0 1920 1080"><line class="conn" x1="600" y1="540" x2="1102" y2="176" /><line class="conn" x1="600" y1="540" x2="1190" y2="348" /><line class="conn" x1="600" y1="540" x2="1220" y2="540" /><line class="conn" x1="600" y1="540" x2="1190" y2="732" /><line class="conn" x1="600" y1="540" x2="1102" y2="904" /></svg><div class="dot" style="left:1095px;top:169px"></div><div class="dot" style="left:1183px;top:341px"></div><div class="dot" style="left:1213px;top:533px"></div><div class="dot" style="left:1183px;top:725px"></div><div class="dot" style="left:1095px;top:897px"></div><div class="brow" style="top:176px"><div class="node line-s" data-dx="990" data-dy="-34">Ashtanga</div><div class="bsub">eight limbs · yama · niyama · vritti · which stage are you at</div></div><div class="brow" style="top:328px"><div class="node line-s" data-dx="1078" data-dy="-14">Surya Namaskar</div><div class="bsub">twelve names · mantras · breathing pattern · why sampoorna yoga</div></div><div class="brow" style="top:480px"><div class="node line-s" data-dx="1108" data-dy="26">Hatha</div><div class="bsub">how it differs · Bihar School of Yoga · Yoga Nidra · Kundalini</div></div><div class="brow" style="top:632px"><div class="node line-s" data-dx="1078" data-dy="66">Meditation</div><div class="bsub">which school · under a guru · has it made you introverted</div></div><div class="brow" style="top:784px"><div class="node line-s" data-dx="990" data-dy="86">Yoga as policy</div><div class="bsub">why 21st June · has the government overdone it · can an atheist be spiritual</div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 40.36;
+          var root = document.getElementById("s22");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            
+    var gone = root.querySelectorAll('.centre, .fan, .dot');
+    tl.to(gone, { opacity: 0, filter: 'blur(6px)', duration: 0.6, ease: 'power2.in' }, 0.2);
+    root.querySelectorAll('.node').forEach(function (nd, i) {
+      tl.fromTo(nd, { x: +nd.dataset.dx, y: +nd.dataset.dy }, { x: 0, y: 0, duration: 1.2, ease: 'expo.inOut' }, 0.3 + i * 0.07);
+    });
+    ELV.stagger(tl, root.querySelectorAll('.bsub'), 1.5, 0.35, { y: 16 });
+    
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            
+            window.__timelines["s22"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

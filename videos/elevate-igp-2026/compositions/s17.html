@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>s17</title></head>
+  <body>
+    <template>
+      <style>
+#s17 { position:absolute; inset:0; background:#0B0B0C; color:#F5F3EF; overflow:hidden; font-kerning:normal; }
+#s17 .drift { position:absolute; inset:0; transform-origin:0% 50%; }
+#s17 .exit { position:absolute; inset:0; }
+#s17 .block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+#s17 .block.low { bottom:140px; }
+#s17 .block.top { top:140px; }
+#s17 .block.mid { top:0; bottom:0; justify-content:center; }
+#s17 .block.center { top:0; bottom:0; justify-content:center; align-items:center; text-align:center; }
+#s17 .gap20 { gap:20px; } #s17 .gap24 { gap:24px; } #s17 .gap28 { gap:28px; } #s17 .gap32 { gap:32px; } #s17 .gap44 { gap:44px; }
+#s17 .hero { font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+#s17 .stmt { font-size:84px; font-weight:500; letter-spacing:-0.02em; line-height:1.1; max-width:1500px; }
+#s17 .line, #s17 .line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; max-width:1560px; }
+#s17 .label { font-size:26px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+#s17 .stamp { font-size:22px; font-weight:400; color:#8A8780; }
+#s17 .muted { color:#8A8780; }
+#s17 .accent { color:#C8642A; }
+#s17 .w { display:inline-block; white-space:pre; }
+#s17 .gapb { margin-top:36px; }
+#s17 .ty { position:relative; white-space:nowrap; }
+#s17 .ch { opacity:0; }
+#s17 .cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; background:#F5F3EF; opacity:0; }
+#s17 .stat { font-size:320px; font-weight:600; letter-spacing:-0.04em; line-height:0.9; display:flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+#s17 .stat .suf { display:inline-block; }
+#s17 .card { width:1040px; padding:64px 72px; border:1px solid #2A2A2D; border-radius:28px; display:flex; flex-direction:column; gap:22px; }
+#s17 .redact { display:block; width:380px; height:40px; border-radius:6px; background:#8A8780; }
+#s17 .redact.sm { width:420px; height:30px; }
+#s17 .score { position:relative; align-self:flex-start; font-size:260px; font-weight:600; letter-spacing:-0.02em; line-height:1; }
+#s17 .score .val { display:inline-block; }
+#s17 .uline { position:absolute; left:0; right:0; bottom:-10px; height:4px; background:#C8642A; transform-origin:0 50%; transform:scaleX(0); }
+#s17 .nrow { display:flex; align-items:baseline; gap:40px; }
+#s17 .nno { font-size:26px; font-weight:600; letter-spacing:0.14em; width:60px; font-variant-numeric:tabular-nums; }
+#s17 .secno { font-size:260px; font-weight:600; letter-spacing:-0.05em; line-height:0.85; margin-bottom:28px; font-variant-numeric:tabular-nums; }
+#s17 .sub { margin-top:18px; }
+#s17 .thead { display:flex; align-items:center; margin-bottom:34px; }
+#s17 .trow { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-top:1px solid #2A2A2D; }
+#s17 .tr { font-size:56px; font-weight:600; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+#s17 .pair { display:flex; gap:180px; }
+#s17 .pnum { font-size:280px; font-weight:600; letter-spacing:-0.05em; line-height:0.9; font-variant-numeric:tabular-nums; }
+#s17 .tag { display:inline-block; font-size:26px; font-weight:600; letter-spacing:0.14em; color:#FFFFFF; background:#B3261E; padding:10px 16px 8px; border-radius:6px; vertical-align:middle; margin-left:14px; }
+#s17 .anchorword { position:absolute; left:140px; top:471px; white-space:nowrap; transform-origin:0 50%; }
+#s17 .fan { position:absolute; left:0; top:0; }
+#s17 .conn { stroke:#8A8780; stroke-width:2; opacity:0.6; }
+#s17 .dot { position:absolute; width:14px; height:14px; border-radius:50%; background:#C8642A; }
+#s17 .node { position:absolute; white-space:nowrap; font-weight:500; }
+#s17 .brow { position:absolute; left:140px; right:140px; height:140px; }
+#s17 .brow .node { position:relative; }
+#s17 .bsub { font-size:32px; font-weight:400; color:#8A8780; margin-top:10px; }
+#s17 .inst { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+#s17 .stampstrip { display:inline-block; background:#141416; padding:10px 18px; border-radius:8px; }
+#s17 .st { align-self:flex-start; }
+#s17 .slots { display:flex; gap:80px; margin-top:44px; }
+#s17 .slot { display:flex; align-items:baseline; gap:20px; }
+#s17 .blank { display:block; width:220px; height:3px; background:#F5F3EF; transform-origin:0 50%; transform:scaleX(0); }
+#s17 .crow { display:flex; align-items:baseline; gap:30px; }
+#s17 .cnum { font-size:132px; font-weight:600; letter-spacing:-0.04em; line-height:1; font-variant-numeric:tabular-nums; min-width:360px; }
+#s17 .wordmark { font-size:150px; font-weight:600; letter-spacing:0.14em; line-height:1; margin-right:-0.14em; }
+#s17 .closing .wordmark { font-size:120px; }
+#s17 .feats { display:flex; flex-direction:column; gap:14px; margin-top:56px; }
+#s17 .feat { font-size:36px; font-weight:400; }
+#s17 .cta { margin-top:56px; background:#141416; border-radius:12px; padding:20px 30px; font-size:26px; color:#8A8780; }
+</style>
+      <div id="s17" data-composition-id="s17" data-width="1920" data-height="1080">
+        <div class="drift"><div class="exit"><div class="block mid"><div class="stmt" id="s17-st"><span class="w">The </span><span class="w">Board </span><span class="w">isn&#x27;t </span><span class="w">working </span><span class="w">from </span><span class="w">your </span><span class="w">list.</span></div></div></div></div>
+      </div>
+      <script>
+        (function () {
+          var DUR = 20.46;
+          var root = document.getElementById("s17");
+          document.fonts.ready.then(function () {
+            var tl = gsap.timeline({ paused: true });
+            var ws = root.querySelectorAll('.w'); ELV.fadeUp(tl, ws, 0.4, { stagger: 0.07, dur: 0.9 });
+            ELV.clearOut(tl, root.querySelector('.exit'), DUR);
+            ELV.drift(tl, root.querySelector('.drift'), DUR);
+            window.__timelines["s17"] = tl;
+            if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>
