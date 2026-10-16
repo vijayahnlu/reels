@@ -370,66 +370,72 @@ def scene(n, s, dur):
 </html>
 """
 
-# ---------- durations ----------
-ends = {}
-for n, s in SLIDES.items():
-    fn = LAYOUTS["statement_hero_anchor"] if n == 20 else LAYOUTS[s["layout"]]
-    ends[n] = fn(s, n)[2]
-DUR = {}
-for a, b, total in SECTIONS:
-    ids = list(range(a, b + 1))
-    floor = {n: ends[n] + (SLIDES[n].get("hold") or 1.5) + 0.8 for n in ids}
-    fixed, free = {}, ids[:]
-    while True:  # give each slide its share of the section by voiceover words, never less than its floor
-        budget = total - sum(fixed.values())
-        w = sum(WORDS[n] for n in free) or 1
-        share = {n: budget * WORDS[n] / w for n in free}
-        low = [n for n in free if share[n] < floor[n]]
-        if not low: break
-        for n in low: fixed[n] = floor[n]; free.remove(n)
-    DUR.update(fixed); DUR.update({n: share[n] for n in free})
-DUR = {n: round(d, 2) for n, d in DUR.items()}
+def main():
+    global DUR
+    # ---------- durations ----------
+    ends = {}
+    for n, s in SLIDES.items():
+        fn = LAYOUTS["statement_hero_anchor"] if n == 20 else LAYOUTS[s["layout"]]
+        ends[n] = fn(s, n)[2]
+    DUR = {}
+    for a, b, total in SECTIONS:
+        ids = list(range(a, b + 1))
+        floor = {n: ends[n] + (SLIDES[n].get("hold") or 1.5) + 0.8 for n in ids}
+        fixed, free = {}, ids[:]
+        while True:  # give each slide its share of the section by voiceover words, never less than its floor
+            budget = total - sum(fixed.values())
+            w = sum(WORDS[n] for n in free) or 1
+            share = {n: budget * WORDS[n] / w for n in free}
+            low = [n for n in free if share[n] < floor[n]]
+            if not low: break
+            for n in low: fixed[n] = floor[n]; free.remove(n)
+        DUR.update(fixed); DUR.update({n: share[n] for n in free})
+    DUR = {n: round(d, 2) for n, d in DUR.items()}
 
-(ROOT / "compositions").mkdir(exist_ok=True)
-for n, s in SLIDES.items():
-    (ROOT / "compositions" / f"s{n:02d}.html").write_text(scene(n, s, DUR[n]))
+    (ROOT / "compositions").mkdir(exist_ok=True)
+    for n, s in SLIDES.items():
+        (ROOT / "compositions" / f"s{n:02d}.html").write_text(scene(n, s, DUR[n]))
 
-hosts, t = [], 0.0
-for n in sorted(SLIDES):
-    hosts.append(f'      <div id="h{n:02d}" class="clip" data-composition-id="s{n:02d}" data-composition-src="compositions/s{n:02d}.html" '
-                 f'data-start="{t:.2f}" data-duration="{DUR[n]:.2f}" data-track-index="1" data-width="1920" data-height="1080"></div>')
-    t = round(t + DUR[n], 2)
-total = t
-index = f"""<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <title>ELEVATE IGP 2026 launch film</title>
-    <script src="assets/vendor/gsap.min.js"></script>
-    <script src="assets/motion.js"></script>
-    <style>
-      @font-face {{ font-family: "Inter Tight"; font-weight: 400; src: url("assets/fonts/inter-tight-latin-400-normal.woff2") format("woff2"); }}
-      @font-face {{ font-family: "Inter Tight"; font-weight: 500; src: url("assets/fonts/inter-tight-latin-500-normal.woff2") format("woff2"); }}
-      @font-face {{ font-family: "Inter Tight"; font-weight: 600; src: url("assets/fonts/inter-tight-latin-600-normal.woff2") format("woff2"); }}
-      * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-      html, body {{ margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: {C["bg"]}; }}
-      #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: {C["bg"]}; font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif; }}
-    </style>
-  </head>
-  <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="{total:.2f}" data-width="1920" data-height="1080" data-fps="30">
-{chr(10).join(hosts)}
-    </div>
-    <script>
-      const tl = gsap.timeline({{ paused: true }});
-      window.__timelines["main"] = tl;
-    </script>
-  </body>
-</html>
-"""
-(ROOT / "index.html").write_text(index)
-json.dump({f"S{n:02d}": DUR[n] for n in sorted(DUR)}, open(ROOT / "tools" / "durations.json", "w"), indent=1)
-print(f"{len(SLIDES)} scenes, {total:.1f}s ({int(total // 60)}:{total % 60:04.1f})")
-for a, b, tot in SECTIONS:
-    print(f"  S{a:02d}-S{b:02d}: {sum(DUR[n] for n in range(a, b + 1)):.1f}s (target {tot})", " ".join(f"{DUR[n]:.0f}" for n in range(a, b + 1)))
+    hosts, t = [], 0.0
+    for n in sorted(SLIDES):
+        hosts.append(f'      <div id="h{n:02d}" class="clip" data-composition-id="s{n:02d}" data-composition-src="compositions/s{n:02d}.html" '
+                     f'data-start="{t:.2f}" data-duration="{DUR[n]:.2f}" data-track-index="1" data-width="1920" data-height="1080"></div>')
+        t = round(t + DUR[n], 2)
+    total = t
+    index = f"""<!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=1920, height=1080" />
+        <title>ELEVATE IGP 2026 launch film</title>
+        <script src="assets/vendor/gsap.min.js"></script>
+        <script src="assets/motion.js"></script>
+        <style>
+          @font-face {{ font-family: "Inter Tight"; font-weight: 400; src: url("assets/fonts/inter-tight-latin-400-normal.woff2") format("woff2"); }}
+          @font-face {{ font-family: "Inter Tight"; font-weight: 500; src: url("assets/fonts/inter-tight-latin-500-normal.woff2") format("woff2"); }}
+          @font-face {{ font-family: "Inter Tight"; font-weight: 600; src: url("assets/fonts/inter-tight-latin-600-normal.woff2") format("woff2"); }}
+          * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+          html, body {{ margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: {C["bg"]}; }}
+          #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: {C["bg"]}; font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif; }}
+        </style>
+      </head>
+      <body>
+        <div id="root" data-composition-id="main" data-start="0" data-duration="{total:.2f}" data-width="1920" data-height="1080" data-fps="30">
+    {chr(10).join(hosts)}
+        </div>
+        <script>
+          const tl = gsap.timeline({{ paused: true }});
+          window.__timelines["main"] = tl;
+        </script>
+      </body>
+    </html>
+    """
+    (ROOT / "index.html").write_text(index)
+    json.dump({f"S{n:02d}": DUR[n] for n in sorted(DUR)}, open(ROOT / "tools" / "durations.json", "w"), indent=1)
+    print(f"{len(SLIDES)} scenes, {total:.1f}s ({int(total // 60)}:{total % 60:04.1f})")
+    for a, b, tot in SECTIONS:
+        print(f"  S{a:02d}-S{b:02d}: {sum(DUR[n] for n in range(a, b + 1)):.1f}s (target {tot})", " ".join(f"{DUR[n]:.0f}" for n in range(a, b + 1)))
+
+
+if __name__ == "__main__":
+    main()

@@ -22,3 +22,8 @@ User direction: "super motion oriented, very clean, Apple brand like feel."
 - S06 score stays masked as `2__` (consent gate, spec § 6).
 - Logo on S03/S39: no logo file supplied; wordmark only.
 - S39 CTA is still the spec's placeholder text.
+
+## Delivery change (presenter request)
+The film is presented live on Zoom, not voiced over: the deliverable is the click-through deck
+`deck/elevate-igp-2026-deck.html` (built by `tools/deck_build.py`). The deck fills 3/4 of the recording,
+so stamps, labels and sub-lines are set larger than the spec's scale. Speaker notes are the spec's VO.

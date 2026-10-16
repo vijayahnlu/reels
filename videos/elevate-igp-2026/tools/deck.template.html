@@ -1,0 +1,169 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELEVATE IGP 2026</title>
+<style>
+/* Layout: one fixed 1920x1080 stage scaled to the window; each slide is a layer on it */
+@font-face { font-family:"Inter Tight"; font-weight:400; src:url(data:font/woff2;base64,{{FONT_400}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:500; src:url(data:font/woff2;base64,{{FONT_500}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:600; src:url(data:font/woff2;base64,{{FONT_600}}) format("woff2"); }
+:root { --bg:{{BG}}; --fg:{{FG}}; --accent:{{ACCENT}}; color-scheme:dark; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; background:var(--bg); overflow:hidden; }
+body { color:var(--fg); font-family:"Inter Tight", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; user-select:none; }
+#stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:center; overflow:hidden; background:var(--bg); }
+@keyframes elvBlink { 0% { opacity:1; } 50% { opacity:0; } }
+#nav { position:fixed; right:18px; bottom:18px; display:flex; gap:8px; align-items:center; opacity:0; transition:opacity .4s; }
+body.mouse #nav { opacity:1; }
+#nav button { all:unset; cursor:pointer; width:44px; height:44px; border-radius:22px; display:grid; place-items:center; background:rgba(255,255,255,.1); color:#fff; font:500 20px/1 "Inter Tight", sans-serif; }
+#nav button:hover { background:rgba(255,255,255,.2); }
+#nav button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+#pos { font:500 14px/1 "Inter Tight", sans-serif; color:rgba(255,255,255,.7); padding:0 8px; font-variant-numeric:tabular-nums; }
+#jump { position:fixed; left:50%; bottom:28px; transform:translateX(-50%); font:500 22px/1 "Inter Tight", sans-serif; color:#fff; background:rgba(0,0,0,.75); padding:10px 16px; border-radius:10px; }
+</style>
+<div id="stage">
+{{SLIDES}}
+</div>
+<div id="nav"><span id="pos"></span><button id="prev" aria-label="Back">‹</button><button id="replay" aria-label="Replay this slide">↺</button><button id="next" aria-label="Next">›</button></div>
+<div id="jump" hidden></div>
+
+<script>{{GSAP}}</script>
+<script>{{MOTION}}</script>
+<script>
+var NOTES = {{NOTES}};
+var BUILDERS = {
+{{BUILDERS}}
+};
+</script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var decks = [];          // per slide: { el, tl, holds, keep }
+  var cur = -1, k = 0, stepTween = null, busy = false;
+
+  function fit() { var s = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = 'translate(-50%,-50%) scale(' + s + ')'; }
+  addEventListener('resize', fit); fit();
+
+  function build() {
+    slides.forEach(function (el) {
+      var tl = gsap.timeline({ paused: true }), holds = [];
+      BUILDERS[el.id](el, tl, function (t) { holds.push(t); });
+      decks.push({ el: el, tl: tl, holds: holds, keep: el.dataset.keep === '1', exit: el.querySelector('.exit') });
+    });
+  }
+  function endOf(d, i) { return i < d.holds.length ? d.holds[i] : d.tl.duration(); }
+  function startOf(d, i) { return i === 0 ? 0 : d.holds[i - 1]; }
+
+  // play build i of the current slide: scrub the slide's timeline from the previous hold to the next
+  function playStep(i) {
+    var d = decks[cur];
+    if (stepTween) stepTween.kill();
+    d.tl.pause().seek(startOf(d, i), false);
+    stepTween = d.tl.tweenFromTo(startOf(d, i), endOf(d, i), { ease: 'none' });
+    k = i; status();
+  }
+  function settle(i) {   // jump to the finished state of build i, no motion
+    var d = decks[cur];
+    if (stepTween) { stepTween.kill(); stepTween = null; }
+    d.tl.pause().seek(endOf(d, i), false);
+    k = i; status();
+  }
+  function show(i, atEnd) {
+    var d = decks[i];
+    gsap.set(d.exit, { clearProps: 'opacity,transform,filter' });
+    d.el.style.visibility = 'visible';
+    cur = i;
+    if (atEnd) settle(d.holds.length); else playStep(0);
+    try { history.replaceState(null, '', '#s' + String(i + 1).padStart(2, '0')); } catch (e) {}
+  }
+  function hide(d) { d.el.style.visibility = 'hidden'; }
+
+  function go(i, atEnd) {
+    if (i < 0 || i >= decks.length || busy) return;
+    var from = decks[cur];
+    if (!from) { show(i, atEnd); return; }
+    if (stepTween) { stepTween.kill(); stepTween = null; }
+    var forward = i > cur;
+    if (forward && i === cur + 1 && from.keep) { hide(from); show(i, atEnd); return; }   // S20 → S21 → S22 carry the same word across
+    if (!forward) { hide(from); show(i, atEnd); return; }
+    busy = true;   // clear_to: the current slide fades out fully before the next one builds
+    gsap.to(from.exit, { opacity: 0, y: -16, filter: 'blur(6px)', duration: 0.6, ease: 'power2.in', onComplete: function () {
+      hide(from); busy = false; show(i, atEnd);
+    } });
+  }
+  function next() {
+    var d = decks[cur];
+    if (busy) return;
+    if (stepTween && stepTween.isActive()) { settle(k); return; }   // a second press finishes the build in progress
+    if (k < d.holds.length) playStep(k + 1); else go(cur + 1);
+  }
+  function prev() {
+    if (busy) return;
+    if (stepTween && stepTween.isActive()) { settle(k); return; }
+    if (k > 0) settle(k - 1); else go(cur - 1, true);
+  }
+
+  // ---------- presenter notes in a second window (press N) ----------
+  var notesWin = null;
+  function paintNotes() {
+    if (!notesWin || notesWin.closed) return;
+    var d = notesWin.document, id = decks[cur].el.id;
+    d.getElementById('h').textContent = 'SLIDE ' + id.slice(1) + '  ·  BUILD ' + (k + 1) + ' OF ' + (decks[cur].holds.length + 1);
+    d.getElementById('b').textContent = NOTES[id] || '';
+    d.getElementById('n').textContent = decks[cur + 1] ? 'Next: slide ' + decks[cur + 1].el.id.slice(1) : 'Last slide';
+  }
+  function openNotes() {
+    try {
+      notesWin = window.open('', 'elevate-notes', 'width=620,height=760');
+      if (!notesWin) return;
+      notesWin.document.title = 'Speaker notes';
+      notesWin.document.body.innerHTML = '<div id="h" style="font:600 15px/1.3 Helvetica,Arial;letter-spacing:2px;color:#C8642A"></div>' +
+        '<div id="b" style="font:400 24px/1.5 Helvetica,Arial;color:#F5F3EF;margin-top:18px;white-space:pre-wrap"></div>' +
+        '<div id="n" style="font:400 15px/1.4 Helvetica,Arial;color:#8A8780;margin-top:26px"></div>';
+      notesWin.document.body.style.cssText = 'margin:0;padding:30px;background:#0B0B0C';
+      notesWin.addEventListener('keydown', onKey);
+      paintNotes();
+    } catch (e) {}
+  }
+  function status() {
+    var d = decks[cur];
+    document.getElementById('pos').textContent = d.el.id.slice(1) + ' · ' + (k + 1) + '/' + (d.holds.length + 1);
+    paintNotes();
+  }
+
+  // ---------- input ----------
+  var buf = '', bufTimer, jumpEl = document.getElementById('jump');
+  function onKey(e) {
+    if (/^[0-9]$/.test(e.key)) {
+      buf += e.key; jumpEl.hidden = false; jumpEl.textContent = 'Go to slide ' + buf;
+      clearTimeout(bufTimer); bufTimer = setTimeout(function () { buf = ''; jumpEl.hidden = true; }, 2500); return;
+    }
+    if (e.key === 'Enter' && buf) { var n = +buf; buf = ''; jumpEl.hidden = true; if (n >= 1 && n <= decks.length) { hide(decks[cur]); cur = -1; show(n - 1); } return; }
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].indexOf(e.key) >= 0) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].indexOf(e.key) >= 0) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { hide(decks[cur]); cur = -1; show(0); }
+    else if (e.key === 'End') { hide(decks[cur]); cur = -1; show(decks.length - 1, true); }
+    else if (e.key === 'r' || e.key === 'R') { var c = cur; hide(decks[c]); cur = -1; show(c); }
+    else if (e.key === 'n' || e.key === 'N') openNotes();
+    else if (e.key === 'f' || e.key === 'F') { var doc = document; (doc.fullscreenElement ? doc.exitFullscreen() : doc.documentElement.requestFullscreen()).catch(function () {}); }
+  }
+  addEventListener('keydown', onKey);
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#nav')) return;
+    if (e.clientX < innerWidth * 0.2) prev(); else next();
+  });
+  document.getElementById('next').onclick = function (e) { e.stopPropagation(); next(); };
+  document.getElementById('prev').onclick = function (e) { e.stopPropagation(); prev(); };
+  document.getElementById('replay').onclick = function (e) { e.stopPropagation(); var c = cur; hide(decks[c]); cur = -1; show(c); };
+  var idle;
+  addEventListener('mousemove', function () { document.body.classList.add('mouse'); clearTimeout(idle); idle = setTimeout(function () { document.body.classList.remove('mouse'); }, 1800); });
+
+  document.fonts.ready.then(function () {
+    build();
+    var m = location.hash.match(/^#s(\d+)$/), start = m ? Math.min(decks.length, Math.max(1, +m[1])) - 1 : 0;
+    show(start);
+    window.__deck = { next: next, prev: prev, go: function (i, end) { hide(decks[cur]); cur = -1; show(i, end); },
+      state: function () { return { slide: cur + 1, build: k + 1, builds: decks[cur].holds.length + 1 }; } };
+  });
+})();
+</script>
