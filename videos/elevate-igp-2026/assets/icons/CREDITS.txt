@@ -1,4 +1,5 @@
 Illustration silhouettes: game-icons.net (Lorc, Delapouite and contributors), licensed CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/ · https://github.com/game-icons/icons
-Used: meditation, position-marker, person-in-bed, night-sleep, breaking-chain, sun-radiations, person,
-round-table, magnifying-glass and others in game-icons-subset.json. Colour and line texture changed for the deck.
+All icons used by the decks are in game-icons-subset.json (meditation, person, round-table, scales,
+stairs-goal, sands-of-time and others). Colour changed and lighting added for the deck.
+The credit line also appears on the deck's final slide.
