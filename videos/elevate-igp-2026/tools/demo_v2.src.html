@@ -1,0 +1,301 @@
+<title>ELEVATE IGP 2026 Demo</title>
+<style>
+/* Layout: 1920x1080 stage scaled to the window. A live dot field sits behind every slide; each slide adds one geometric construction. */
+@font-face { font-family:"Inter Tight"; font-weight:400; src:url(data:font/woff2;base64,{{FONT_400}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:500; src:url(data:font/woff2;base64,{{FONT_500}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:600; src:url(data:font/woff2;base64,{{FONT_600}}) format("woff2"); }
+:root { --bg:#0B0B0C; --alt:#141416; --fg:#F5F3EF; --muted:#8A8780; --accent:#C8642A; --rule:#2A2A2D; --tag:#B3261E; color-scheme:dark; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; background:var(--bg); overflow:hidden; }
+body { color:var(--fg); font-family:"Inter Tight", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; user-select:none; }
+#stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:center; overflow:hidden; background:var(--bg); }
+#field { position:absolute; inset:0; }
+#glow { position:absolute; width:1400px; height:1400px; left:0; top:0; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(200,100,42,.22) 0%, rgba(200,100,42,.08) 32%, rgba(200,100,42,0) 62%); }
+#logo { position:absolute; left:140px; top:64px; width:300px; color:var(--fg); opacity:.92; }
+#logo svg { display:block; width:100%; height:auto; }
+.slide { position:absolute; inset:0; visibility:hidden; }
+.exit { position:absolute; inset:0; }
+.geo { position:absolute; inset:0; overflow:visible; }
+.ring { fill:none; stroke:#4a4844; stroke-width:2; }
+.tick { stroke:#6b6862; stroke-width:2; }
+.tick.major { stroke:var(--accent); stroke-width:3; }
+.ring.dash { stroke-dasharray:2 10; stroke:#55524d; }
+.ring.acc { stroke:var(--accent); stroke-width:2; }
+.pulse { fill:none; stroke:var(--accent); stroke-width:3; opacity:0; }
+.ray { stroke:#6b6862; stroke-width:1.5; }
+.web { fill:rgba(200,100,42,.06); stroke:rgba(200,100,42,.55); stroke-width:1.5; }
+.shard { fill:none; stroke:rgba(245,243,239,.22); stroke-width:1.5; }
+.shard.acc { stroke:rgba(200,100,42,.65); }
+.block { position:absolute; left:140px; right:140px; display:flex; flex-direction:column; }
+.low { bottom:140px; }
+.line-s { font-size:56px; font-weight:400; letter-spacing:-0.01em; line-height:1.2; }
+.label { font-size:30px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+.muted { color:var(--muted); }
+.accent { color:var(--accent); }
+.ty { position:relative; white-space:nowrap; }
+.ch { opacity:0; }
+.cur { position:absolute; left:0; top:0.14em; width:4px; height:1em; opacity:0; }
+.cur::after { content:""; position:absolute; inset:0; background:var(--fg); animation:blink 1.06s steps(1) infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.redact { display:inline-block; width:420px; height:30px; border-radius:6px; background:var(--muted); }
+/* S18 */
+.trow { position:absolute; left:140px; right:140px; height:104px; display:flex; align-items:center; }
+.trow .tl { width:600px; font-size:48px; }
+.dots { position:relative; flex:1; height:40px; margin-top:-2px; }
+.dot { position:absolute; width:17px; height:17px; border-radius:4px; background:var(--accent); box-shadow:0 0 14px rgba(200,100,42,.35); }
+.tnum { width:200px; text-align:right; font-size:64px; font-weight:600; letter-spacing:-0.02em; color:var(--accent); font-variant-numeric:tabular-nums; }
+.tunit { font-size:30px; font-weight:500; color:var(--muted); margin-left:10px; letter-spacing:0; }
+.rule { position:absolute; left:140px; right:140px; height:1px; background:var(--rule); transform-origin:0 50%; }
+/* S21 */
+.centre { position:absolute; left:140px; top:471px; font-size:132px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; white-space:nowrap; transform-origin:0 50%; }
+.node { position:absolute; font-size:56px; font-weight:500; white-space:nowrap; }
+.ndot { position:absolute; width:16px; height:16px; border-radius:50%; background:var(--accent); box-shadow:0 0 24px 6px rgba(200,100,42,.55); }
+#nav { position:fixed; right:18px; bottom:18px; display:flex; gap:8px; align-items:center; opacity:0; transition:opacity .4s; }
+body.mouse #nav { opacity:1; }
+#nav button { all:unset; cursor:pointer; width:44px; height:44px; border-radius:22px; display:grid; place-items:center; background:rgba(255,255,255,.1); color:#fff; font:500 20px/1 "Inter Tight", sans-serif; }
+#nav button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+#pos { font:500 14px/1 "Inter Tight", sans-serif; color:rgba(255,255,255,.7); padding:0 8px; }
+</style>
+
+<div id="stage">
+  <canvas id="field" width="1920" height="1080"></canvas>
+  <div id="glow"></div>
+
+  <!-- S01 · quote_stack: the four-member board orbits the candidate; each question is a pulse from the centre -->
+  <section class="slide" id="s01">
+    <div class="exit">
+      <svg class="geo" viewBox="0 0 1920 1080">
+        <g id="s01-rings" transform="translate(1390 470)">
+          <circle class="ring" r="110"/><circle class="ring dash" r="200"/><circle class="ring" r="300"/><circle class="ring dash" r="400"/>
+          <g id="s01-dial">{{TICKS}}</g>
+          <circle r="60" fill="rgba(200,100,42,.10)"/>
+          <circle class="pulse" r="40"/><circle class="pulse" r="40"/><circle class="pulse" r="40"/>
+          <g id="s01-orbit">
+            <line class="ray beam" x1="0" y1="0" x2="0" y2="-300"/><line class="ray beam" x1="0" y1="0" x2="300" y2="0"/>
+            <line class="ray beam" x1="0" y1="0" x2="0" y2="300"/><line class="ray beam" x1="0" y1="0" x2="-300" y2="0"/>
+            <circle class="member" cx="0" cy="-300" r="9" fill="#55524d"/><circle class="member" cx="300" cy="0" r="9" fill="#55524d"/>
+            <circle class="member" cx="0" cy="300" r="9" fill="#55524d"/><circle class="member" cx="-300" cy="0" r="9" fill="#55524d"/>
+          </g>
+          <circle id="s01-core" r="12" fill="#C8642A"/>
+        </g>
+      </svg>
+      <div class="block low" style="gap:28px">
+        <div class="ty line-s">{{Q1}}<span class="cur"></span></div>
+        <div class="ty line-s">{{Q2}}<span class="cur"></span></div>
+        <div class="ty line-s">{{Q3}}<span class="cur"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S18 · table_reveal: every question is a unit you can see land -->
+  <section class="slide" id="s18">
+    <div class="exit">
+      <div style="position:absolute; left:140px; top:190px; display:flex; align-items:center; gap:18px"><span class="redact"></span><span class="label muted">· CSE 2026</span></div>
+      {{ROWS}}
+    </div>
+  </section>
+
+  <!-- S21 · node_fan: the two words split along rays into five directions -->
+  <section class="slide" id="s21">
+    <div class="exit">
+      <svg class="geo" viewBox="0 0 1920 1080">
+        <g id="s21-mandala" transform="translate(730 540)">
+          <circle class="ring dash" r="70"/><circle class="ring" r="118"/>
+          <g class="spin-a"><polygon class="shard" points="0,-104 90,52 -90,52"/></g>
+          <g class="spin-b"><polygon class="shard acc" points="0,104 90,-52 -90,-52"/></g>
+        </g>
+        <polygon id="s21-web" class="web" points="{{WEB}}"/>
+        {{RAYS}}
+        <circle class="pulse" id="s21-pulse" cx="730" cy="540" r="30"/>
+      </svg>
+      <div class="centre">Practising Yoga</div>
+      {{NODES}}
+    </div>
+  </section>
+</div>
+<div id="nav"><span id="pos"></span><button id="prev" aria-label="Back">‹</button><button id="next" aria-label="Next">›</button></div>
+<div id="logo-src" hidden>{{LOGO}}</div>
+
+<script>{{GSAP}}</script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  function fit() { var s = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = 'translate(-50%,-50%) scale(' + s + ')'; }
+  addEventListener('resize', fit); fit();
+
+  /* ---------- the dot field: a 48px lattice that breathes and carries shockwaves ---------- */
+  var cv = document.getElementById('field'), cx = cv.getContext('2d');
+  var GAP = 48, dots = [];
+  for (var y = GAP / 2; y < 1080; y += GAP) for (var x = GAP / 2; x < 1920; x += GAP) dots.push([x, y]);
+  var waves = [], focus = { x: 1390, y: 470 };
+  window.FIELD = {
+    pulse: function (x, y, s) { waves.push({ x: x, y: y, s: s || 1, t: performance.now() }); },
+    focus: focus
+  };
+  function frame(now) {
+    cx.clearRect(0, 0, 1920, 1080);
+    waves = waves.filter(function (w) { return now - w.t < 2600; });
+    for (var i = 0; i < dots.length; i++) {
+      var d = dots[i], dx = d[0] - focus.x, dy = d[1] - focus.y, dist = Math.sqrt(dx * dx + dy * dy);
+      var base = Math.max(0, 1 - dist / 1100);                 // brighter near the focus
+      var breathe = 0.5 + 0.5 * Math.sin(now / 1400 + d[0] * 0.004 + d[1] * 0.006);
+      var e = 0;
+      for (var j = 0; j < waves.length; j++) {
+        var w = waves[j], age = (now - w.t) / 1000, front = age * 900;
+        var wd = Math.hypot(d[0] - w.x, d[1] - w.y), band = Math.exp(-Math.pow((wd - front) / 70, 2));
+        e += band * w.s * Math.max(0, 1 - age / 2.6);
+      }
+      var r = 1.1 + base * 0.9 + breathe * 0.35 + e * 3.2;
+      var a = 0.07 + base * 0.16 + e * 0.75;
+      cx.fillStyle = e > 0.08 ? 'rgba(200,100,42,' + Math.min(1, a) + ')' : 'rgba(245,243,239,' + a + ')';
+      cx.beginPath(); cx.arc(d[0], d[1], r, 0, 6.2832); cx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  var glow = document.getElementById('glow');
+  function lightTo(x, y, dur) {
+    gsap.to(focus, { x: x, y: y, duration: dur == null ? 1.6 : dur, ease: 'power3.inOut' });
+    gsap.to(glow, { x: x - 700, y: y - 700, duration: dur == null ? 1.6 : dur, ease: 'power3.inOut' });
+  }
+  gsap.set(glow, { x: 1390 - 700, y: 470 - 700 });
+  gsap.to(glow, { scale: 1.08, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+  /* logo, top-left on every slide */
+  var logo = document.createElement('div'); logo.id = 'logo';
+  logo.innerHTML = document.getElementById('logo-src').innerHTML; stage.appendChild(logo);
+
+  /* ---------- helpers ---------- */
+  function fadeUp(tl, t, at, o) {
+    o = o || {};
+    tl.fromTo(t, { opacity: 0, y: o.y == null ? 24 : o.y, filter: 'blur(8px)' },
+      { opacity: 1, y: 0, filter: 'blur(0px)', duration: o.dur || 0.8, ease: 'expo.out', stagger: o.stagger || 0 }, at);
+  }
+  function typeOn(tl, line, at, dur) {
+    var chars = line.querySelectorAll('.ch'), cur = line.querySelector('.cur'), step = dur / chars.length;
+    tl.set(cur, { opacity: 1, x: chars[0].offsetLeft }, at);
+    chars.forEach(function (c, i) { tl.set(c, { opacity: 1 }, at + i * step); tl.set(cur, { x: c.offsetLeft + c.offsetWidth + 4 }, at + i * step); });
+    return at + dur;
+  }
+  function draw(tl, el, at, dur) {
+    var len = el.getTotalLength ? el.getTotalLength() : 2000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur || 1.2, ease: 'power2.inOut' }, at);
+  }
+  function ripple(tl, el, at, r1) {
+    tl.fromTo(el, { attr: { r: 20 }, opacity: 0.9, strokeWidth: 4 }, { attr: { r: r1 }, opacity: 0, strokeWidth: 0.5, duration: 1.6, ease: 'expo.out', immediateRender: false }, at);
+  }
+  function call(tl, fn, at) { tl.call(fn, null, at); }
+
+  /* ---------- slide builders: P(t) marks a hold until the next click ---------- */
+  var B = {
+    s01: function (root, tl, P) {
+      var rings = root.querySelectorAll('#s01-rings .ring'), pulses = root.querySelectorAll('.pulse');
+      var beams = root.querySelectorAll('.beam'), members = root.querySelectorAll('.member'), core = root.querySelector('#s01-core');
+      call(tl, function () { lightTo(1390, 470); }, 0);
+      rings.forEach(function (r, i) { draw(tl, r, 0.1 + i * 0.12, 1.4); });
+      tl.fromTo(root.querySelectorAll('.tick'), { opacity: 0, scale: 0.6, svgOrigin: '0 0' }, { opacity: 1, scale: 1, svgOrigin: '0 0', duration: 0.9, ease: 'expo.out', stagger: { each: 0.006, from: 'start' } }, 0.2);
+      tl.fromTo(core, { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.8, ease: 'back.out(3)' }, 0.5);
+      tl.fromTo(members, { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.6, ease: 'back.out(2.5)', stagger: 0.08 }, 0.8);
+      var lines = root.querySelectorAll('.ty'), t = 1.1;
+      lines.forEach(function (ln, i) {
+        if (i > 0) { P(t); t += 0.05; tl.set(lines[i - 1].querySelector('.cur'), { opacity: 0 }, t); }
+        ripple(tl, pulses[i], t, i === 2 ? 620 : 420);
+        call(tl, function () { FIELD.pulse(1390, 470, i === 2 ? 1.6 : 1); }, t);
+        // a board member turns to the candidate
+        var m = [members[i], members[(i + 2) % 4]];
+        draw(tl, beams[i], t, 0.7); if (i === 2) { draw(tl, beams[3], t + 0.1, 0.7); m.push(members[3], members[1]); }
+        tl.to(m, { attr: { fill: '#C8642A' }, duration: 0.4 }, t + 0.3);
+        t = typeOn(tl, ln, t, 1.2);
+      });
+    },
+    s18: function (root, tl, P) {
+      call(tl, function () { lightTo(1250, 560); }, 0);
+      fadeUp(tl, root.querySelector('.redact').parentNode, 0.2, { y: 16 });
+      var rows = root.querySelectorAll('.trow'), rules = root.querySelectorAll('.rule'), t = 0.6;
+      rows.forEach(function (r, i) {
+        if (i > 0) { P(t); t += 0.05; }
+        tl.fromTo(rules[i], { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: 'expo.out' }, t);
+        fadeUp(tl, r.querySelector('.tl'), t, { y: 16 });
+        var ds = r.querySelectorAll('.dot'), n = ds.length, span = Math.min(1.6, 0.25 + n * 0.024);
+        tl.fromTo(ds, { opacity: 0, x: 60, y: -18, scale: 0.2, rotation: 45 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.55, ease: 'back.out(2)', stagger: span / n }, t + 0.25);
+        var num = r.querySelector('.n');
+        tl.fromTo(num, { innerText: 0 }, { innerText: n, snap: { innerText: 1 }, duration: span + 0.4, ease: 'none' }, t + 0.25);
+        tl.fromTo(r.querySelector('.tnum'), { opacity: 0 }, { opacity: 1, duration: 0.3 }, t + 0.25);
+        var rowY = parseFloat(r.style.top) + 52;
+        call(tl, function () { FIELD.pulse(1660, rowY, 0.6 + Math.min(1, n / 40)); }, t + 0.25 + span);
+        t = t + 0.25 + span + 0.6;
+      });
+    },
+    s21: function (root, tl, P) {
+      call(tl, function () { lightTo(600, 540); }, 0);
+      var centre = root.querySelector('.centre');
+      fadeUp(tl, centre, 0.1, { dur: 0.9 });
+      tl.to(centre, { scale: 56 / 132, duration: 1.1, ease: 'expo.inOut' }, 0.9);
+      root.querySelectorAll('#s21-mandala .ring, .shard').forEach(function (el, i) { draw(tl, el, 1.5 + i * 0.15, 1.2); });
+      call(tl, function () { lightTo(730, 540); }, 1.4);
+      P(2.9);
+      var rays = root.querySelectorAll('.fray'), sparks = root.querySelectorAll('.spark'), nodes = root.querySelectorAll('.node'), nd = root.querySelectorAll('.ndot');
+      var t = 2.95;
+      call(tl, function () { lightTo(1100, 540); FIELD.pulse(730, 540, 1.3); }, t);
+      ripple(tl, root.querySelector('#s21-pulse'), t, 700);
+      rays.forEach(function (ray, i) {
+        var at = t + 0.15 + i * 0.32, len = ray.getTotalLength();
+        draw(tl, ray, at, 0.55);
+        tl.fromTo(sparks[i], { attr: { cx: 730, cy: 540 }, opacity: 1 },
+          { attr: { cx: +ray.getAttribute('x2'), cy: +ray.getAttribute('y2') }, duration: 0.55, ease: 'power2.inOut' }, at);
+        tl.to(sparks[i], { opacity: 0, duration: 0.3 }, at + 0.55);
+        tl.fromTo(nd[i], { scale: 0 }, { scale: 1, duration: 0.5, ease: 'back.out(3)' }, at + 0.5);
+        fadeUp(tl, nodes[i], at + 0.52, { y: 12, dur: 0.6 });
+        call(tl, function () { FIELD.pulse(+ray.getAttribute('x2'), +ray.getAttribute('y2'), 0.7); }, at + 0.55);
+      });
+      draw(tl, root.querySelector('#s21-web'), t + 0.15 + 5 * 0.32 + 0.3, 1.4);
+      tl.fromTo(root.querySelector('#s21-web'), { fillOpacity: 0 }, { fillOpacity: 1, duration: 1.2 }, t + 2.3);
+    }
+  };
+  // ambient spin on the S21 shards (decorative, continuous)
+  gsap.to('#s21 .spin-a', { rotation: 360, svgOrigin: '0 0', duration: 60, ease: 'none', repeat: -1 });
+  gsap.to('#s21 .spin-b', { rotation: -360, svgOrigin: '0 0', duration: 80, ease: 'none', repeat: -1 });
+  gsap.to('#s01-dial', { rotation: -360, svgOrigin: '0 0', duration: 140, ease: 'none', repeat: -1 });
+  gsap.to('#s01-orbit', { rotation: 360, svgOrigin: '0 0', duration: 90, ease: 'none', repeat: -1 });
+
+  /* ---------- deck engine: each click scrubs the slide's timeline to its next hold ---------- */
+  var slides = [].slice.call(document.querySelectorAll('.slide')), decks = [], cur = -1, k = 0, tw = null, busy = false;
+  function endOf(d, i) { return i < d.holds.length ? d.holds[i] : d.tl.duration(); }
+  function startOf(d, i) { return i === 0 ? 0 : d.holds[i - 1]; }
+  function playStep(i) { var d = decks[cur]; if (tw) tw.kill(); d.tl.pause().seek(startOf(d, i), true); tw = d.tl.tweenFromTo(startOf(d, i), endOf(d, i), { ease: 'none' }); k = i; status(); }
+  function settle(i) { var d = decks[cur]; if (tw) { tw.kill(); tw = null; } d.tl.pause().seek(endOf(d, i), true); k = i; status(); }
+  function show(i, atEnd) { var d = decks[i]; gsap.set(d.exit, { clearProps: 'opacity,transform,filter' }); d.el.style.visibility = 'visible'; cur = i; if (atEnd) settle(d.holds.length); else playStep(0); }
+  function go(i, atEnd) {
+    if (i < 0 || i >= decks.length || busy) return;
+    var from = decks[cur]; if (tw) { tw.kill(); tw = null; }
+    if (i < cur) { from.el.style.visibility = 'hidden'; show(i, atEnd); return; }
+    busy = true;
+    gsap.to(from.exit, { opacity: 0, scale: 0.985, filter: 'blur(8px)', duration: 0.6, ease: 'power2.in', onComplete: function () { from.el.style.visibility = 'hidden'; busy = false; show(i, atEnd); } });
+  }
+  function next() { if (busy) return; var d = decks[cur]; if (tw && tw.isActive()) { settle(k); return; } if (k < d.holds.length) playStep(k + 1); else go(cur + 1); }
+  function prev() { if (busy) return; if (tw && tw.isActive()) { settle(k); return; } if (k > 0) settle(k - 1); else go(cur - 1, true); }
+  function status() { document.getElementById('pos').textContent = decks[cur].el.id.slice(1) + ' · ' + (k + 1) + '/' + (decks[cur].holds.length + 1); }
+  addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].indexOf(e.key) >= 0) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) >= 0) { e.preventDefault(); prev(); }
+    else if (e.key === 'f' || e.key === 'F') { var doc = document; (doc.fullscreenElement ? doc.exitFullscreen() : doc.documentElement.requestFullscreen()).catch(function () {}); }
+  });
+  document.addEventListener('click', function (e) { if (e.target.closest('#nav')) return; if (e.clientX < innerWidth * 0.2) prev(); else next(); });
+  document.getElementById('next').onclick = function (e) { e.stopPropagation(); next(); };
+  document.getElementById('prev').onclick = function (e) { e.stopPropagation(); prev(); };
+  var idle; addEventListener('mousemove', function () { document.body.classList.add('mouse'); clearTimeout(idle); idle = setTimeout(function () { document.body.classList.remove('mouse'); }, 1800); });
+
+  document.fonts.ready.then(function () {
+    slides.forEach(function (el) {
+      var tl = gsap.timeline({ paused: true }), holds = [];
+      B[el.id](el, tl, function (t) { holds.push(t); });
+      decks.push({ el: el, tl: tl, holds: holds, exit: el.querySelector('.exit') });
+    });
+    gsap.fromTo(logo, { opacity: 0, y: -10 }, { opacity: 0.92, y: 0, duration: 1.2, ease: 'expo.out', delay: 0.2 });
+    show(0);
+    window.__deck = { next: next, prev: prev, state: function () { return { slide: cur, build: k, builds: decks[cur].holds.length + 1 }; } };
+  });
+})();
+</script>
