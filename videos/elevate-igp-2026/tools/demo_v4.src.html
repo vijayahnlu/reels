@@ -1,0 +1,330 @@
+<title>ELEVATE IGP 2026 Demo</title>
+<style>
+/* Layout: 1920x1080 stage scaled to the window. Monochrome editorial collage: scanline figures, glitched windows,
+   film grain; orange only where the slide points at something. */
+@font-face { font-family:"Inter Tight"; font-weight:400; src:url(data:font/woff2;base64,{{FONT_400}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:500; src:url(data:font/woff2;base64,{{FONT_500}}) format("woff2"); }
+@font-face { font-family:"Inter Tight"; font-weight:600; src:url(data:font/woff2;base64,{{FONT_600}}) format("woff2"); }
+@font-face { font-family:"JetBrains Mono"; font-weight:400; src:url(data:font/woff2;base64,{{MONO_400}}) format("woff2"); }
+@font-face { font-family:"JetBrains Mono"; font-weight:500; src:url(data:font/woff2;base64,{{MONO_500}}) format("woff2"); }
+:root { --bg:#0A0A0A; --fg:#F2F0EC; --grey:#8A8780; --paper:#E9E6E0; --ink:#121212; --accent:#C8642A; color-scheme:dark; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; background:var(--bg); overflow:hidden; }
+body { color:var(--fg); font-family:"Inter Tight", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; user-select:none; }
+#stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:center; overflow:hidden; background:var(--bg); }
+#grain { position:absolute; inset:0; pointer-events:none; z-index:50; mix-blend-mode:screen; }
+#logo { position:absolute; left:120px; top:56px; width:310px; color:var(--fg); z-index:40; }
+#logo svg { display:block; width:100%; height:auto; }
+.slide { position:absolute; inset:0; visibility:hidden; }
+.exit { position:absolute; inset:0; transform-origin:50% 50%; }
+.mono { font-family:"JetBrains Mono", ui-monospace, monospace; }
+.scan { position:absolute; }
+/* typed lines */
+.ty { position:relative; white-space:nowrap; }
+.ch { opacity:0; }
+.cur { position:absolute; left:0; top:0.12em; width:5px; height:1em; opacity:0; }
+.cur::after { content:""; position:absolute; inset:0; background:var(--accent); animation:blink 1.06s steps(1) infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.qs { position:absolute; left:120px; right:80px; bottom:96px; display:flex; flex-direction:column; gap:22px; font-size:66px; font-weight:400; letter-spacing:-0.015em; line-height:1.15; }
+/* browser windows */
+.win { position:absolute; background:#1b1b1b; border:1px solid #3a3a3a; transform-origin:50% 0; }
+.win.light { background:var(--paper); border-color:#cfcac2; }
+.win .bar { height:34px; display:flex; align-items:center; gap:7px; padding:0 12px; background:#d9d6d0; color:#222; font-size:15px; }
+.win .bar i { width:10px; height:10px; border-radius:50%; background:#9a968f; display:inline-block; }
+.win .bar span { margin-left:10px; letter-spacing:.02em; white-space:nowrap; overflow:hidden; }
+.win canvas { display:block; }
+.strings { position:absolute; inset:0; overflow:visible; pointer-events:none; }
+.strings line { stroke:#bdb9b2; stroke-width:1.6; }
+/* S02 */
+.codecol { position:absolute; left:120px; top:170px; width:760px; font-size:24px; line-height:1.55; color:#cfcbc4; white-space:pre; }
+.codecol .k { color:var(--grey); }
+.codecol .hl { color:var(--accent); }
+.big { position:absolute; left:120px; bottom:96px; font-size:150px; font-weight:600; letter-spacing:-0.035em; line-height:0.98; }
+.big .w { display:inline-block; }
+/* S12 */
+.stmt { position:absolute; left:120px; bottom:110px; width:860px; font-size:96px; font-weight:600; letter-spacing:-0.03em; line-height:1.04; }
+.stmt .w { display:inline-block; }
+.doc { position:absolute; left:1050px; top:150px; width:720px; height:820px; background:var(--paper); color:var(--ink); transform-origin:50% 0; }
+.doc .bar { height:40px; background:#cfcac2; display:flex; align-items:center; padding:0 18px; font-size:16px; letter-spacing:.12em; color:#333; }
+.doc .row { position:absolute; left:48px; right:48px; height:120px; border-bottom:1px solid #c9c4bb; }
+.doc .lab { position:absolute; left:0; top:26px; font-size:20px; letter-spacing:.14em; color:#6b665e; }
+.doc .val { position:absolute; left:0; top:58px; height:30px; background:#2a2a2a; }
+.doc .txt { position:absolute; left:0; top:48px; font-size:46px; font-weight:500; letter-spacing:-0.01em; color:var(--ink); }
+.beam { position:absolute; left:-30px; right:-30px; height:3px; background:#fff; box-shadow:0 0 30px 8px rgba(255,255,255,.55); opacity:0; }
+.marks { position:absolute; inset:0; overflow:visible; pointer-events:none; }
+.mark { fill:none; stroke:var(--accent); stroke-width:6; stroke-linecap:round; stroke-linejoin:round; }
+.ghost { position:absolute; border:1px solid #2c2c2c; background:#121212; }
+#nav { position:fixed; right:18px; bottom:18px; display:flex; gap:8px; align-items:center; opacity:0; transition:opacity .4s; z-index:99; }
+body.mouse #nav { opacity:1; }
+#nav button { all:unset; cursor:pointer; width:44px; height:44px; border-radius:22px; display:grid; place-items:center; background:rgba(255,255,255,.1); color:#fff; font:500 20px/1 "Inter Tight", sans-serif; }
+#nav button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+#pos { font:500 14px/1 "Inter Tight", sans-serif; color:rgba(255,255,255,.7); padding:0 8px; }
+</style>
+
+<div id="stage">
+  <!-- S01 · the board pulls the strings: each question drops in on a thread -->
+  <section class="slide" id="s01"><div class="exit">
+    <canvas class="scan" id="hand" width="900" height="540" style="left:690px;top:-80px"></canvas>
+    <svg class="strings" viewBox="0 0 1920 1080">
+      <line id="st0" x1="940" y1="306" x2="760" y2="330"/>
+      <line id="st1" x1="1090" y1="370" x2="1150" y2="300"/>
+      <line id="st2" x1="1240" y1="350" x2="1520" y2="420"/>
+      <line id="st3" x1="1340" y1="280" x2="1720" y2="190"/>
+    </svg>
+    <div class="win" id="w0" style="left:560px;top:330px;width:400px;height:250px"><div class="bar mono"><i></i><i></i><i></i><span>daf/hobbies/hatha-yoga.loc</span></div><canvas width="400" height="216"></canvas></div>
+    <div class="win light" id="w1" style="left:930px;top:300px;width:440px;height:290px"><div class="bar mono"><i></i><i></i><i></i><span>query: yoga nidra</span></div><canvas width="440" height="256"></canvas></div>
+    <div class="win" id="w2" style="left:1390px;top:420px;width:360px;height:230px"><div class="bar mono"><i></i><i></i><i></i><span>moksha.exe  accept? [y/n]</span></div><canvas width="360" height="196"></canvas></div>
+    <div class="win" id="w3" style="left:1640px;top:190px;width:200px;height:140px"><div class="bar mono"><i></i><i></i><i></i></div><canvas width="200" height="106"></canvas></div>
+    <div class="qs">
+      <div class="ty">{{Q1}}<span class="cur"></span></div>
+      <div class="ty">{{Q2}}<span class="cur"></span></div>
+      <div class="ty">{{Q3}}<span class="cur"></span></div>
+    </div>
+  </div></section>
+
+  <!-- S02 · the candidate is made of the syllabus -->
+  <section class="slide" id="s02"><div class="exit">
+    <div class="codecol mono">{{CODE}}</div>
+    <canvas class="scan" id="bust" width="860" height="980" style="left:1000px;top:100px"></canvas>
+    <div class="big">{{BIG}}</div>
+  </div></section>
+
+  <!-- S12 · four strangers have already read your form -->
+  <section class="slide" id="s12"><div class="exit">
+    <div class="ghost" style="left:980px;top:110px;width:720px;height:820px;transform:rotate(3deg)"></div>
+    <div class="ghost" style="left:1110px;top:190px;width:720px;height:820px;transform:rotate(-5deg);opacity:.6"></div>
+    <div class="doc" id="doc">
+      <div class="bar mono">DETAILED APPLICATION FORM</div>
+      <div class="row" style="top:70px"><span class="lab mono">DISTRICT</span><span class="val" style="width:260px"></span></div>
+      <div class="row" style="top:190px"><span class="lab mono">DEGREE</span><span class="val" style="width:380px"></span></div>
+      <div class="row" style="top:310px"><span class="lab mono">EMPLOYER</span><span class="val" style="width:320px"></span></div>
+      <div class="row" style="top:430px"><span class="lab mono">HOBBIES</span><span class="txt">Hatha yoga</span></div>
+      <div class="row" style="top:550px;border:0"><span class="lab mono">PRIZES</span><span class="val" style="width:220px"></span></div>
+      <div class="beam" id="beam"></div>
+      <svg class="marks" viewBox="0 0 720 820">
+        <path class="mark" d="M44 160 C140 166 240 158 330 164"/>
+        <path class="mark" d="M470 262 L496 290 L548 228"/>
+        <path class="mark" d="M300 500 C300 460 200 452 120 456 C40 460 28 498 40 524 C56 556 180 560 268 552 C330 546 352 520 330 492"/>
+      </svg>
+    </div>
+    <div class="stmt">{{STMT}}</div>
+  </div></section>
+
+  <canvas id="grain" width="960" height="540" style="width:1920px;height:1080px"></canvas>
+</div>
+<div id="nav"><span id="pos"></span><button id="prev" aria-label="Back">‹</button><button id="next" aria-label="Next">›</button></div>
+<div id="logo-src" hidden>{{LOGO}}</div>
+
+<script>{{GSAP}}</script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  function fit() { var s = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = 'translate(-50%,-50%) scale(' + s + ')'; }
+  addEventListener('resize', fit); fit();
+  var logo = document.createElement('div'); logo.id = 'logo'; logo.innerHTML = document.getElementById('logo-src').innerHTML; stage.appendChild(logo);
+
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+
+  /* ---------- film grain and drifting dust over everything ---------- */
+  var gcv = document.getElementById('grain'), g = gcv.getContext('2d'), tiles = [], r0 = rng(11);
+  for (var k = 0; k < 4; k++) {
+    var t = g.createImageData(240, 135);
+    for (var i = 0; i < t.data.length; i += 4) { var v = r0() * 255; t.data[i] = t.data[i + 1] = t.data[i + 2] = v; t.data[i + 3] = r0() < 0.5 ? 26 : 0; }
+    tiles.push(t);
+  }
+  var dust = []; for (var d = 0; d < 80; d++) dust.push({ x: r0() * 960, y: r0() * 540, s: 0.4 + r0() * 1.2, v: 0.05 + r0() * 0.2 });
+
+  /* ---------- scanline figures: a mask drawn as horizontal hairlines that can glitch ---------- */
+  function ScanFig(cv, maskFn, shade, seed) {
+    var W = cv.width, H = cv.height, off = document.createElement('canvas'); off.width = W; off.height = H;
+    var m = off.getContext('2d'); m.fillStyle = '#fff'; m.strokeStyle = '#fff'; m.lineCap = 'round'; m.lineJoin = 'round';
+    maskFn(m);
+    var data = m.getImageData(0, 0, W, H).data, r = rng(seed || 7), rows = [];
+    function inside(x, y) { return data[(y * W + x) * 4 + 3] > 120; }
+    for (var y = 0; y < H; y += 5) {
+      var segs = [], x = 0;
+      while (x < W) {
+        if (!inside(x, y)) { x++; continue; }
+        var e = x, len = 4 + (r() * 30 | 0);
+        while (e < x + len && e < W && inside(e, y)) e++;
+        // edge light: segments near the silhouette's left or top edge burn brighter, like a rim-lit photo
+        var lrun = 0; while (lrun < 46 && x - lrun - 1 >= 0 && inside(x - lrun - 1, y)) lrun++;
+        var trun = 0; while (trun < 46 && y - trun - 1 >= 0 && inside(x, y - trun - 1)) trun++;
+        var rim = Math.max(1 - lrun / 46, 1 - trun / 46);
+        var a = Math.max(0.08, Math.min(1, Math.pow(shade(x / W, y / H), 0.75) * (0.55 + 0.45 * r()) + rim * 0.55));
+        segs.push([x, e - x, a, r() < 0.06]);
+        x = e + (r() < 0.3 ? 1 + (r() * 5 | 0) : 0);
+      }
+      rows.push({ y: y, segs: segs, seed: r() });
+    }
+    this.cv = cv; this.ctx = cv.getContext('2d'); this.rows = rows; this.H = H; this.W = W;
+    this.s = { reveal: 0, glitch: 0, alpha: 1 };
+  }
+  ScanFig.prototype.draw = function (now) {
+    var c = this.ctx, s = this.s, edge = s.reveal * (this.H + 60), tick = Math.floor(now / 70);
+    c.clearRect(0, 0, this.W, this.H);
+    for (var i = 0; i < this.rows.length; i++) {
+      var row = this.rows[i]; if (row.y > edge) break;
+      var near = Math.max(0, 1 - (edge - row.y) / 60);           // the scan front is brighter and torn
+      var h = Math.sin((i * 12.9898 + tick * 78.233)) * 43758.5453; h = h - Math.floor(h);
+      var dx = 0;
+      if (h < s.glitch * 0.35 + near * 0.5) dx = (h * 2 - 0.5) * (40 + 220 * s.glitch + 80 * near);
+      for (var j = 0; j < row.segs.length; j++) {
+        var sg = row.segs[j];
+        c.globalAlpha = Math.min(1, sg[2] * s.alpha + near * 0.5);
+        c.fillStyle = sg[3] ? '#ffffff' : '#f4f1ec';
+        c.fillRect(sg[0] + dx, row.y, sg[1], near > 0.5 ? 3.2 : 2.4);
+      }
+    }
+    c.globalAlpha = 1;
+  };
+
+  /* hand reaching down from above, fingers spread like a puppeteer's */
+  var hand = new ScanFig(document.getElementById('hand'), function (m) {
+    m.lineWidth = 170; m.beginPath(); m.moveTo(500, -80); m.lineTo(460, 70); m.stroke();
+    m.beginPath(); m.moveTo(330, 70); m.lineTo(560, 50); m.lineTo(610, 180); m.lineTo(560, 270); m.lineTo(370, 280); m.lineTo(290, 190); m.closePath(); m.fill();
+    m.lineWidth = 54;
+    [[360, 250, 250, 386], [430, 268, 400, 450], [500, 262, 550, 430], [570, 230, 650, 360]].forEach(function (f) { m.beginPath(); m.moveTo(f[0], f[1]); m.lineTo(f[2], f[3]); m.stroke(); });
+    m.lineWidth = 60; m.beginPath(); m.moveTo(320, 150); m.lineTo(185, 236); m.stroke();
+  }, function (x, y) { return 0.25 + 0.75 * (1 - (x * 0.45 + y * 0.55)); }, 21);
+
+  /* a head and shoulders in profile, facing left */
+  var bust = new ScanFig(document.getElementById('bust'), function (m) {
+    m.fill(new Path2D('M430 80 C540 70 640 140 650 260 C660 360 640 420 610 480 C600 520 600 560 620 600 C700 680 830 720 860 780 L860 980 L40 980 C60 860 120 780 220 720 C280 690 330 650 340 600 C330 560 320 520 300 490 C285 480 270 470 268 455 C262 445 272 432 280 425 C268 420 262 410 270 400 C258 395 250 388 255 375 C240 360 215 345 214 330 C215 318 235 310 255 300 C262 280 262 260 262 240 C262 222 270 210 278 200 C282 160 300 120 340 98 C370 86 400 80 430 80 Z'));
+  }, function (x, y) { return (0.25 + 0.75 * (1 - x)) * (0.65 + 0.35 * (1 - y)); }, 33);
+
+  /* window contents: noise, halftone and burst textures in black and white */
+  function paintWin(cv, kind, seed) {
+    var c = cv.getContext('2d'), W = cv.width, H = cv.height, r = rng(seed), img = c.createImageData(W, H), d = img.data;
+    for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+      var v, i = (y * W + x) * 4, nx = x / W, ny = y / H;
+      if (kind === 'map') { var dots = (Math.sin(x * 0.5) * Math.sin(y * 0.5) > 0.6 - nx * 0.9) ? 220 : 30; v = dots * (0.7 + 0.3 * r()); }
+      else if (kind === 'sleep') { v = 200 + 40 * Math.sin(y * 0.18 + Math.sin(x * 0.02) * 3) - r() * 60; if (Math.abs(ny - 0.62) < 0.05 && nx > 0.18 && nx < 0.82) v = 30; }
+      else if (kind === 'burst') { var dd = Math.hypot(nx - 0.5, (ny - 0.5) * 0.7); v = Math.max(0, 255 - dd * 520) + (r() < 0.5 - dd ? 120 : 0) - r() * 40; if ((y % 4) === 0) v *= 0.5; }
+      else { v = r() < 0.5 ? 230 : 20; if ((y >> 2) % 3 === 0) v *= 0.4; }
+      d[i] = d[i + 1] = d[i + 2] = Math.max(0, Math.min(255, v)); d[i + 3] = 255;
+    }
+    c.putImageData(img, 0, 0);
+    if (kind === 'map') { c.strokeStyle = '#C8642A'; c.lineWidth = 3; c.beginPath(); c.arc(W * 0.62, H * 0.45, 16, 0, 6.28); c.moveTo(W * 0.62 - 30, H * 0.45); c.lineTo(W * 0.62 + 30, H * 0.45); c.moveTo(W * 0.62, H * 0.45 - 30); c.lineTo(W * 0.62, H * 0.45 + 30); c.stroke(); }
+  }
+  [['w0', 'map', 3], ['w1', 'sleep', 5], ['w2', 'burst', 7], ['w3', 'noise', 9]].forEach(function (w) { paintWin(document.querySelector('#' + w[0] + ' canvas'), w[1], w[2]); });
+
+  var figs = { s01: [hand], s02: [bust], s12: [] }, live = 's01';
+  function loop(now) {
+    g.clearRect(0, 0, 960, 540);
+    var f0 = Math.floor(now / 60);
+    for (var ty = 0; ty < 4; ty++) for (var tx = 0; tx < 4; tx++) g.putImageData(tiles[(f0 + tx + ty * 3) % 4], tx * 240, ty * 135);
+    g.fillStyle = '#fff';
+    dust.forEach(function (p) { p.y -= p.v; if (p.y < 0) p.y = 540; g.globalAlpha = 0.35; g.fillRect(p.x, p.y, p.s, p.s); }); g.globalAlpha = 1;
+    (figs[live] || []).forEach(function (f) { f.draw(now); });
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  /* ---------- helpers ---------- */
+  function fadeUp(tl, t, at, o) { o = o || {}; tl.fromTo(t, { opacity: 0, y: o.y == null ? 30 : o.y, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: o.dur || 0.9, ease: 'expo.out', stagger: o.stagger || 0 }, at); }
+  function typeOn(tl, line, at, dur) {
+    var chars = line.querySelectorAll('.ch'), cur = line.querySelector('.cur'), step = dur / chars.length;
+    tl.set(cur, { opacity: 1, x: chars[0].offsetLeft }, at);
+    chars.forEach(function (c, i) { tl.set(c, { opacity: 1 }, at + i * step); tl.set(cur, { x: c.offsetLeft + c.offsetWidth + 4 }, at + i * step); });
+    return at + dur;
+  }
+  function draw(tl, el, at, dur) {
+    var len = el.getTotalLength();
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur || 1.0, ease: 'power2.inOut' }, at);
+    tl.fromTo(el, { visibility: 'hidden' }, { visibility: 'visible', duration: 0.01 }, at);
+  }
+  // a window falls on its thread and swings to rest
+  function drop(tl, win, line, at, sign) {
+    var y2 = +line.getAttribute('y2');
+    tl.fromTo(win, { y: -520, rotation: 0 }, { y: 0, duration: 1.1, ease: 'bounce.out' }, at);
+    tl.fromTo(line, { attr: { y2: y2 - 520 } }, { attr: { y2: y2 }, duration: 1.1, ease: 'bounce.out' }, at);
+    tl.fromTo(win, { rotation: 0 }, { rotation: (sign || 1) * 3, duration: 1.6, ease: 'elastic.out(1, 0.3)' }, at + 0.7);
+    tl.fromTo(win, { opacity: 0 }, { opacity: 1, duration: 0.2 }, at);
+    draw(tl, line, at, 0.3);
+  }
+
+  var B = {
+    s01: function (root, tl, P) {
+      var hs = hand.s, wins = ['w0', 'w1', 'w2'].map(function (id) { return root.querySelector('#' + id); });
+      var lines = ['st0', 'st1', 'st2'].map(function (id) { return root.querySelector('#' + id); });
+      tl.fromTo(hs, { reveal: 0, glitch: 0.9 }, { reveal: 1, glitch: 0.06, duration: 2.0, ease: 'power2.out' }, 0);
+      drop(tl, root.querySelector('#w3'), root.querySelector('#st3'), 0.6);
+      var qs = root.querySelectorAll('.ty'), t = 1.3;
+      qs.forEach(function (ln, i) {
+        if (i > 0) { P(t); t += 0.05; tl.set(qs[i - 1].querySelector('.cur'), { opacity: 0 }, t); }
+        drop(tl, wins[i], lines[i], t, i % 2 ? 1 : -1);
+        if (i === 2) {   // moksha: the hand convulses and every thread snaps taut
+          tl.to(hs, { glitch: 0.95, duration: 0.15 }, t + 0.5).to(hs, { glitch: 0.08, duration: 1.4, ease: 'power2.out' }, t + 0.65);
+          tl.to(root.querySelectorAll('.win'), { y: -26, duration: 0.12, ease: 'power2.out', stagger: 0.03 }, t + 0.55)
+            .to(root.querySelectorAll('.win'), { y: 0, duration: 0.9, ease: 'elastic.out(1, 0.35)', stagger: 0.03 }, t + 0.7);
+        } else {
+          tl.to(hs, { glitch: 0.4, duration: 0.1 }, t + 0.2).to(hs, { glitch: 0.06, duration: 0.6 }, t + 0.3);
+        }
+        t = Math.max(typeOn(tl, ln, t + 0.2, 1.3), t + 1.6);
+      });
+    },
+    s02: function (root, tl) {
+      var codeLines = root.querySelectorAll('.codecol .cl');
+      tl.fromTo(codeLines, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.09, ease: 'power1.out' }, 0.1);
+      tl.fromTo(bust.s, { reveal: 0, glitch: 0.8 }, { reveal: 1, glitch: 0.05, duration: 2.6, ease: 'power1.inOut' }, 0.3);
+      fadeUp(tl, root.querySelectorAll('.big .w'), 2.4, { stagger: 0.09, dur: 1.0, y: 40 });
+      tl.to(bust.s, { glitch: 0.5, duration: 0.1 }, 2.9).to(bust.s, { glitch: 0.05, duration: 0.8 }, 3.0);
+    },
+    s12: function (root, tl, P) {
+      var doc = root.querySelector('#doc');
+      tl.fromTo(root.querySelectorAll('.ghost'), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 1.0, ease: 'expo.out', stagger: 0.1 }, 0.1);
+      tl.fromTo(doc, { y: -700, rotation: 0 }, { y: 0, rotation: -2, duration: 1.2, ease: 'expo.out' }, 0.3);
+      fadeUp(tl, root.querySelectorAll('.stmt .w'), 0.7, { stagger: 0.06 });
+      P(2.0);
+      var beam = root.querySelector('#beam');
+      tl.fromTo(beam, { top: 40, opacity: 0 }, { opacity: 1, duration: 0.15 }, 2.05);
+      tl.to(beam, { top: 690, duration: 1.8, ease: 'none' }, 2.05);
+      tl.to(beam, { opacity: 0, duration: 0.3 }, 3.85);
+      tl.fromTo(doc, { x: 0 }, { x: 6, duration: 0.05, repeat: 5, yoyo: true }, 2.05);
+      var marks = root.querySelectorAll('.mark');
+      draw(tl, marks[0], 2.5, 0.5); draw(tl, marks[1], 2.9, 0.4); draw(tl, marks[2], 3.6, 0.8);
+    }
+  };
+
+  /* ---------- deck engine: each click scrubs the slide's timeline to its next hold ---------- */
+  var slides = [].slice.call(document.querySelectorAll('.slide')), decks = [], cur = -1, k = 0, tw = null, busy = false;
+  function endOf(d, i) { return i < d.holds.length ? d.holds[i] : d.tl.duration(); }
+  function startOf(d, i) { return i === 0 ? 0 : d.holds[i - 1]; }
+  function playStep(i) { var d = decks[cur]; if (tw) tw.kill(); d.tl.pause().seek(startOf(d, i), true); tw = d.tl.tweenFromTo(startOf(d, i), endOf(d, i), { ease: 'none' }); k = i; status(); }
+  function settle(i) { var d = decks[cur]; if (tw) { tw.kill(); tw = null; } d.tl.pause().seek(endOf(d, i), true); k = i; status(); }
+  function show(i, atEnd) { var d = decks[i]; gsap.set(d.exit, { clearProps: 'opacity,transform,filter' }); d.el.style.visibility = 'visible'; cur = i; live = d.el.id; if (atEnd) settle(d.holds.length); else playStep(0); }
+  function go(i, atEnd) {
+    if (i < 0 || i >= decks.length || busy) return;
+    var from = decks[cur]; if (tw) { tw.kill(); tw = null; }
+    if (i < cur) { from.el.style.visibility = 'hidden'; show(i, atEnd); return; }
+    busy = true;   // CRT switch-off: the slide collapses to a line and goes dark
+    gsap.timeline({ onComplete: function () { from.el.style.visibility = 'hidden'; busy = false; show(i, atEnd); } })
+      .to(from.exit, { scaleY: 0.004, scaleX: 1.04, filter: 'brightness(2.2)', duration: 0.28, ease: 'power3.in' })
+      .to(from.exit, { scaleX: 0, opacity: 0, duration: 0.16, ease: 'power2.in' });
+  }
+  function next() { if (busy) return; var d = decks[cur]; if (tw && tw.isActive()) { settle(k); return; } if (k < d.holds.length) playStep(k + 1); else go(cur + 1); }
+  function prev() { if (busy) return; if (tw && tw.isActive()) { settle(k); return; } if (k > 0) settle(k - 1); else go(cur - 1, true); }
+  function status() { document.getElementById('pos').textContent = decks[cur].el.id.slice(1) + ' · ' + (k + 1) + '/' + (decks[cur].holds.length + 1); }
+  addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].indexOf(e.key) >= 0) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) >= 0) { e.preventDefault(); prev(); }
+    else if (e.key === 'f' || e.key === 'F') { var doc = document; (doc.fullscreenElement ? doc.exitFullscreen() : doc.documentElement.requestFullscreen()).catch(function () {}); }
+  });
+  document.addEventListener('click', function (e) { if (e.target.closest('#nav')) return; if (e.clientX < innerWidth * 0.2) prev(); else next(); });
+  document.getElementById('next').onclick = function (e) { e.stopPropagation(); next(); };
+  document.getElementById('prev').onclick = function (e) { e.stopPropagation(); prev(); };
+  var idle; addEventListener('mousemove', function () { document.body.classList.add('mouse'); clearTimeout(idle); idle = setTimeout(function () { document.body.classList.remove('mouse'); }, 1800); });
+
+  document.fonts.ready.then(function () {
+    slides.forEach(function (el) {
+      var tl = gsap.timeline({ paused: true }), holds = [];
+      B[el.id](el, tl, function (t) { holds.push(t); });
+      decks.push({ el: el, tl: tl, holds: holds, exit: el.querySelector('.exit') });
+    });
+    gsap.fromTo(logo, { opacity: 0 }, { opacity: 1, duration: 1.2, delay: 0.2 });
+    show(0);
+    window.__deck = { next: next, prev: prev, state: function () { return { slide: cur, build: k, builds: decks[cur].holds.length + 1 }; } };
+  });
+})();
+</script>
