@@ -1,0 +1,4807 @@
+[
+ {
+  "n": 1,
+  "logo": true,
+  "notes": "Every year, the highest scorers in the personality test come out of this programme. Komal. Sumit. Zenden. Different profiles, different states, four different boards between them.\n\n1",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "ELEVATE IGP  ·  PERSONALITY TEST",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     150,
+     1500,
+     178
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 82.1,
+      "runs": [
+       {
+        "t": "Every year, the",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "highest scorers.",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     470,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Komal",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     820,
+     476,
+     300,
+     53
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "216",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     566,
+     1024,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     610,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Sumit",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     820,
+     616,
+     300,
+     58
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "198",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     706,
+     1024,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     750,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Zenden",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     820,
+     756,
+     300,
+     58
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "210",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     846,
+     1024,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     960,
+     461,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Shashwat",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     960,
+     616,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Aniket",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     996,
+     878,
+     700,
+     68
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 62.0,
+      "runs": [
+       {
+        "t": "Many more…………..",
+        "sz": 62.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.09
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     1378,
+     470,
+     300,
+     53
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "210",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     1378,
+     631,
+     300,
+     53
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "Rank 48",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "logo": false,
+  "notes": "2",
+  "els": [
+   {
+    "k": "img",
+    "box": [
+     0,
+     0,
+     1920,
+     1080
+    ],
+    "src": "image-2-1.jpg"
+   },
+   {
+    "k": "img",
+    "box": [
+     -32,
+     665,
+     1748,
+     415
+    ],
+    "src": "image-2-2.png"
+   },
+   {
+    "k": "img",
+    "box": [
+     288,
+     326,
+     1807,
+     338
+    ],
+    "src": "image-2-3.png"
+   },
+   {
+    "k": "img",
+    "box": [
+     0,
+     0,
+     1516,
+     362
+    ],
+    "src": "image-2-4.png"
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "logo": true,
+  "notes": "And none of that was luck. None of it came out of a few good conversations with a mentor two weeks before the interview. The same process produced all three of them, and it is the same process I am going to walk you through right now.\n\n3",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     400,
+     1700,
+     198
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 90.7,
+      "runs": [
+       {
+        "t": "The same process",
+        "sz": 84.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "produced all three.",
+        "sz": 84.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "logo": true,
+  "notes": "For two years you studied a syllabus that was identical for everybody in the country. Then you reach the last stage and quietly it changes. The syllabus becomes you. Your district, your degree, the firm you worked at, the hobby you filled in without thinking very hard about it.\n\n4",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     440,
+     1700,
+     99
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 90.7,
+      "runs": [
+       {
+        "t": "You are the syllabus now.",
+        "sz": 84.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "logo": true,
+  "notes": "Two hundred and seventy five marks, the same as a full optional. Except your optional has a syllabus you can finish and this one does not. The spread here is wider than anywhere else in the exam. Two people can finish mains within ten marks of each other and walk into different services because of one morning.\n\n5",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "WHAT THIS PAPER CARRIES",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     300,
+     1500,
+     130
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 118.8,
+      "runs": [
+       {
+        "t": "275 marks.",
+        "sz": 110.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.31
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     470,
+     1500,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "The same weight as a full optional.",
+        "sz": 44.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     548,
+     1500,
+     52
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 48.0,
+      "runs": [
+       {
+        "t": "The widest spread of any paper you will write.",
+        "sz": 48.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "logo": true,
+  "notes": "So we run five steps, in this order, and the order matters as much as the list. The first three are the heavy lifting. We prepare the questions, and we prepare the ideal answers, before you ever sit in front of a board.\n\n6",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "THE PROCESS",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     128,
+     1500,
+     80
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 73.4,
+      "runs": [
+       {
+        "t": "Five steps. This order.",
+        "sz": 68.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.41
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     160,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "01",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     330,
+     1400,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "Repair the DAF",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -1.76
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     416,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     456,
+     160,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "02",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     456,
+     1400,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "DAF Questionnaire",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -1.76
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     542,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     582,
+     160,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "03",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     582,
+     1400,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "CA Questionnaire",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -1.76
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     668,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     708,
+     160,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "04",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     708,
+     1400,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "Opinion questions",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -1.76
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     794,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     834,
+     160,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "05",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     834,
+     1400,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "Handle the room",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -1.76
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     920,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     960,
+     1700,
+     33
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 30.0,
+      "runs": [
+       {
+        "t": "Steps 1 to 3 are questions and ideal answers, prepared in advance.",
+        "sz": 30.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "logo": true,
+  "notes": "Everything else is built on this one document, which is why it comes first. It is the only thing the board has about you before you walk in. By the time you sit down, somebody on that panel has read it, marked two or three things, and decided where they are going to start.\n\n7",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 01",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     380,
+     1500,
+     114
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 103.7,
+      "runs": [
+       {
+        "t": "Repair the DAF.",
+        "sz": 96.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -2.88
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     560,
+     1600,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "They have read it more carefully than you wrote it.",
+        "sz": 44.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "logo": true,
+  "notes": "Blank fields create an impression before you have said a word, and so do entries written in language you would never use anywhere else. But the mistake I see most often is the opposite. Everyone worries about exaggerating. Almost nobody does. Something interesting happened in your life and you kept it off the form because you decided it did not fit there. It fits. Often it is the most interesting thing on the page.\n\n8",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 01  ·  REPAIR THE DAF",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "Five entries. That is all they have.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     260,
+     232,
+     1400,
+     589
+    ],
+    "src": "image-8-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     260,
+     843,
+     1400,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Personalised DAF Analysis & Questionnaire  ·  CSE 2026  ·  page 1",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "logo": true,
+  "notes": "We do not leave this to instinct, or to one person's feel for it. Your DAF goes through a fixed checklist of twenty defects, line by line, before any of the other work starts.\n\n9",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "ELEVATE IGP",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     390,
+     1700,
+     187
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 86.4,
+      "runs": [
+       {
+        "t": "Your DAF, checked",
+        "sz": 80.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "against 20 defects.",
+        "sz": 80.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 10,
+  "logo": true,
+  "notes": "Everyone makes a list of expected questions. You sit with a notebook, look at your form, and guess. And your guess is built on what seems relevant to you, with your own blind spots. The board is working from years of its own practice, and that practice leaves a record.\n\n10",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     380,
+     1700,
+     102
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 92.9,
+      "runs": [
+       {
+        "t": "The DAF Questionnaire.",
+        "sz": 86.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.44
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     560,
+     1600,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Stop guessing what they will ask. Find out what they have asked.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 11,
+  "logo": true,
+  "notes": "This is a real questionnaire, built for a candidate this cycle. The name is off the screen. Look at the two lines I have marked. A hundred and twenty nine questions for one profile. And forty eight of them are not asking her what she knows. They are asking her where she stands.\n\n11",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02  ·  DAF QUESTIONNAIRE",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "129 questions. One profile.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     210,
+     252,
+     1480,
+     492
+    ],
+    "src": "image-11-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     210,
+     768,
+     1480,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Candidate name redacted  ·  UPSC CSE Personality Test 2026",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "logo": true,
+  "notes": "Look at the profile first. A law degree, a job at a firm in Noida, Bihar as her home state, two hobbies, two college prizes. Nothing unusual. Half of you have a form that looks like this. Now look at the right hand column. Fifty seven questions out of a law degree. Twenty nine out of the state she happens to be from.\n\n12",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02  ·  DAF QUESTIONNAIRE",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "Every entry opens a door.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     260,
+     232,
+     1400,
+     589
+    ],
+    "src": "image-12-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     260,
+     843,
+     1400,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Right column: questions for this entry, and recorded instances of them",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 13,
+  "logo": true,
+  "notes": "I want to take the smallest entry on her form and open it up. Two words. Practising yoga. Underneath it sit eight questions, and sixty seven recorded instances of boards actually asking them. And watch how fast it stops being about yoga. Ashtanga, the eight limbs. Surya namaskar, the twelve names. The Bihar School of Yoga, Yoga Nidra, Kundalini. Then whether meditation has made you introverted, which is a question about your personality. Then whether the government has overdone promoting yoga, which is a policy opinion, and you had better have one.\n\n13",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02  ·  DAF QUESTIONNAIRE",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     80
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 73.4,
+      "runs": [
+       {
+        "t": "Two words on the form.",
+        "sz": 68.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.41
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     96,
+     256,
+     944,
+     531
+    ],
+    "src": "image-13-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     812,
+     944,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Personalised DAF Analysis & Questionnaire  ·  CSE 2026  ·  page 2",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     1034,
+     338,
+     7,
+     34
+    ],
+    "fill": "#C8642A",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "shape",
+    "box": [
+     1046,
+     353,
+     72,
+     3
+    ],
+    "fill": "#C8642A",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "shape",
+    "box": [
+     1111,
+     347,
+     15,
+     15
+    ],
+    "fill": "#C8642A",
+    "geom": "ellipse",
+    "rot": 0.0
+   },
+   {
+    "k": "img",
+    "box": [
+     1126,
+     264,
+     698,
+     184
+    ],
+    "src": "image-13-2.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     1126,
+     500,
+     700,
+     58
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "8 questions.",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -2.59
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     1126,
+     560,
+     700,
+     58
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 52.0,
+      "runs": [
+       {
+        "t": "67 recorded instances.",
+        "sz": 52.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.59
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     1126,
+     646,
+     698,
+     2
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     1126,
+     690,
+     700,
+     229
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 43.7,
+      "runs": [
+       {
+        "t": "Ashtanga   ",
+        "sz": 27.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       },
+       {
+        "t": "eight limbs, yama, niyama",
+        "sz": 27.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 43.7,
+      "runs": [
+       {
+        "t": "Surya Namaskar   ",
+        "sz": 27.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       },
+       {
+        "t": "twelve names, mantras",
+        "sz": 27.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 43.7,
+      "runs": [
+       {
+        "t": "Hatha   ",
+        "sz": 27.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       },
+       {
+        "t": "Bihar School of Yoga, Kundalini",
+        "sz": 27.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 43.7,
+      "runs": [
+       {
+        "t": "Meditation   ",
+        "sz": 27.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       },
+       {
+        "t": "under a guru, introverted?",
+        "sz": 27.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 43.7,
+      "runs": [
+       {
+        "t": "Yoga as policy   ",
+        "sz": 27.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       },
+       {
+        "t": "why 21 June, state promotion",
+        "sz": 27.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 14,
+  "logo": true,
+  "notes": "And these are not questions we invented. Every one carries a year, a board, a chairman, a member and a date. Sujata Chaturvedi's board, the ninth of January. Sanjay Verma's board, member two, the thirteenth of January. This register is what lets us give you not just the topic, but the exact wording.\n\n14",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02  ·  THE REGISTER UNDERNEATH",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "Asked. On record.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     210,
+     242,
+     1480,
+     498
+    ],
+    "src": "image-14-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     210,
+     763,
+     1480,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Every instance carries CSE year, Board, member and date",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 15,
+  "logo": true,
+  "notes": "The same thing happens to the entry you thought was safe. She wrote that she reads crime fiction because it is true and it looked harmless. Question nine checks whether she has actually read them. Question ten has nothing to do with books. Is reading fiction a useful hobby, or living in a make believe world. That is an opinion question wearing a hobby's clothes, and it is the one that catches people.\n\n15",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 02  ·  DAF QUESTIONNAIRE",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "Even the entry you thought was safe.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     210,
+     252,
+     1480,
+     421
+    ],
+    "src": "image-15-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     210,
+     697,
+     1480,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "A hobby entry producing an opinion question, tagged in the document",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 16,
+  "logo": true,
+  "notes": "Two things you get. The full topic list for your profile, so you can stop preparing in the dark. And the exact wording, because what are the benefits of yoga, and why do you only do asanas and not pranayam, are two very different questions, and the second one has an edge you need to hear coming.\n\n16",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "ELEVATE IGP",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     360,
+     1700,
+     187
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 86.4,
+      "runs": [
+       {
+        "t": "The full topic list.",
+        "sz": 80.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "The exact wording.",
+        "sz": 80.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     620,
+     1600,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "Plus the ideal answer for each, prepared before you face a board.",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 17,
+  "logo": true,
+  "notes": "Step three is the current affairs questionnaire, and it works the same way. Around two hundred questions, weighted towards what has moved recently and towards whatever touches your profile. If you are a lawyer, the three new criminal laws are coming. If you are from Bihar, prohibition is coming, and so is the caste survey.\n\n17",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 03",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     380,
+     1700,
+     102
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 92.9,
+      "runs": [
+       {
+        "t": "The CA Questionnaire.",
+        "sz": 86.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.44
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     560,
+     1600,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Roughly 200 questions, tied back to your profile.",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#FFFFFF",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 18,
+  "logo": true,
+  "notes": "And the questions are not what you have practised for. You can know every feature of a scheme, every number and every year, and still have nothing to say when somebody asks whether it was designed well.\n\n18",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 03  ·  CA QUESTIONNAIRE",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     1700,
+     178
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 82.1,
+      "runs": [
+       {
+        "t": "Nobody will ask you",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "to recite a scheme.",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     620,
+     1600,
+     49
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 44.0,
+      "runs": [
+       {
+        "t": "They will ask what you make of it.",
+        "sz": 44.0,
+        "b": false,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 19,
+  "logo": true,
+  "notes": "Every week you get the major issues laid out properly. The competing positions, what the evidence supports on each side, and where a follow up is likely to take you. You build the view in advance instead of assembling it on the spot in front of a board.\n\n19",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "ELEVATE IGP",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     380,
+     1700,
+     178
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 82.1,
+      "runs": [
+       {
+        "t": "A weekly Opinion Matrix",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "on the major issues.",
+        "sz": 76.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.04
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 20,
+  "logo": true,
+  "notes": "Step four, and this is the one to prepare harder than everything else. Between thirty and forty percent of your interview will ask you to take a position. This is where candidates fumble, or slip, or hear themselves say something and realise it came out wrong.\n\n20",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 04",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     340,
+     1700,
+     102
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 92.9,
+      "runs": [
+       {
+        "t": "Opinion questions.",
+        "sz": 86.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.44
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     520,
+     1600,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "30 to 40 percent of your interview will ask you to take a position.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 21,
+  "logo": true,
+  "notes": "Here is one, straight out of her questionnaire, tagged OPINION in the document. Can a governor delay a bill indefinitely, and what is your opinion on the presidential reference and the Supreme Court verdict on assent to bills. If your plan for the hard questions is to say there is merit on both sides and stop talking, this is what is waiting for you. And that is a bad moment to be building an opinion for the first time.\n\n21",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 04  ·  OPINION QUESTIONS",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     66
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 60.5,
+      "runs": [
+       {
+        "t": "48 of her 129 were tagged OPINION.",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.36
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "img",
+    "box": [
+     96,
+     290,
+     1728,
+     188
+    ],
+    "src": "image-21-1.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     504,
+     1728,
+     22
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 20.0,
+      "runs": [
+       {
+        "t": "Personalised DAF Analysis & Questionnaire  ·  CSE 2026  ·  Law section",
+        "sz": 20.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     640,
+     1728,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     702,
+     1740,
+     142
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 65.9,
+      "runs": [
+       {
+        "t": "One chairman added:",
+        "sz": 54.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.16
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 65.9,
+      "runs": [
+       {
+        "t": "“Choose a side. Do not give a balanced answer.”",
+        "sz": 54.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.16
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     902,
+     1740,
+     35
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 32.0,
+      "runs": [
+       {
+        "t": "A balanced answer is not always the safe answer.",
+        "sz": 32.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 22,
+  "logo": true,
+  "notes": "Seeing the other side is a strength. Hiding behind it is a different thing, and the board can tell immediately. So lead with your judgement, in the first sentence. Then one reason you can actually defend when somebody leans on it, not three you half believe. Then say honestly what cuts against you, because that is what makes the first part credible. Then stop. Most answers lose their marks after the point was already made.\n\n22",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 04  ·  HOW THE ANSWER IS BUILT",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     80
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 73.4,
+      "runs": [
+       {
+        "t": "Four moves. Then stop.",
+        "sz": 68.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.41
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "01",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     330,
+     1500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Your position, in the first sentence.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     412,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     452,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "02",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     452,
+     1500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "One reason that survives a push.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     534,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     574,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "03",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     574,
+     1500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "What honestly cuts against you.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     656,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     696,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "04",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     696,
+     1500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Stop.",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     778,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     880,
+     1700,
+     33
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 30.0,
+      "runs": [
+       {
+        "t": "We iterate on the same question, with feedback, until the answer improves.",
+        "sz": 30.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 23,
+  "logo": true,
+  "notes": "Now let me be blunt about the order, because this is where people lose months. Do not build this preparation out of Wikipedia and the newspaper. Keep reading the paper, of course. But that is not the preparation, and it is not where you start.\n\n23",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "PRIORITY",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     1750,
+     170
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 77.8,
+      "runs": [
+       {
+        "t": "Wikipedia and the newspaper",
+        "sz": 72.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -2.88
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "come later.",
+        "sz": 72.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -2.88
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     620,
+     1700,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Your own list of expected questions is not Priority 1.",
+        "sz": 40.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "logo": true,
+  "notes": "DAF questionnaire first, all of it. Then current affairs. Then the standard set, why civil services, why this service. And only then, your own thinking on top. We widen the scope deliberately, so you are not caught off guard when a board comes at your hobby from an angle you never considered.\n\n24",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "THE ORDER",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     80
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 73.4,
+      "runs": [
+       {
+        "t": "In this sequence.",
+        "sz": 68.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.41
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "01",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     330,
+     1560,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "DAF Questionnaire  ·  all of it",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     412,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     452,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "02",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     452,
+     1560,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "CA Questionnaire",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     534,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     574,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "03",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     574,
+     1560,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "The standard set  ·  why civil services, why this service",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     656,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     696,
+     160,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "04",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     250,
+     696,
+     1560,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "Your own list, last",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     778,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     880,
+     1700,
+     33
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 30.0,
+      "runs": [
+       {
+        "t": "Scope is widened on purpose, so an adjacent angle never catches you cold.",
+        "sz": 30.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 25,
+  "logo": true,
+  "notes": "Being challenged in that room is part of the format. It does not mean you were wrong, and it is not a signal to fold. I have watched candidates defend a point long past the moment it was worth defending. You can be entirely correct and still walk out having cost yourself fifteen marks. Inside the programme we break board questions into three types and work through what you do with each. I am leaving those blank here on purpose.\n\n25",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "STEP 05",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     180,
+     1750,
+     150
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 69.1,
+      "runs": [
+       {
+        "t": "Are you winning the argument",
+        "sz": 64.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       },
+       {
+        "br": 1
+       },
+       {
+        "t": "and losing the interview?",
+        "sz": 64.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     470,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     548,
+     500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Type 1",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     630,
+     420,
+     5
+    ],
+    "fill": "#C8642A",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     656,
+     548,
+     500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Type 2",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     656,
+     630,
+     420,
+     5
+    ],
+    "fill": "#C8642A",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     1216,
+     548,
+     500,
+     44
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 40.0,
+      "runs": [
+       {
+        "t": "Type 3",
+        "sz": 40.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     1216,
+     630,
+     420,
+     5
+    ],
+    "fill": "#C8642A",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     712,
+     1700,
+     35
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 32.0,
+      "runs": [
+       {
+        "t": "Covered inside the programme, not here.",
+        "sz": 32.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     820,
+     1700,
+     35
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 32.0,
+      "runs": [
+       {
+        "t": "Where you commit, where you concede, where you take a breath first.",
+        "sz": 32.0,
+        "b": false,
+        "i": false,
+        "c": "#A8A49C",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 26,
+  "logo": true,
+  "notes": "Let me give you the real volume so there are no surprises in January. A hundred and twenty nine questions from the DAF. Roughly two hundred on current affairs. And the standard set on top. That number should not frighten you, it should recalibrate what you thought this stage takes. You did this much for prelims without complaining, and prelims was not even about you. This one is.\n\n26",
+  "els": [
+   {
+    "k": "text",
+    "box": [
+     96,
+     74,
+     1400,
+     25
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 22.0,
+      "runs": [
+       {
+        "t": "THE REAL VOLUME",
+        "sz": 22.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": 6.37
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     122,
+     1500,
+     102
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 92.9,
+      "runs": [
+       {
+        "t": "This is the floor.",
+        "sz": 86.0,
+        "b": true,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": -3.44
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     330,
+     300,
+     61
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 56.0,
+      "runs": [
+       {
+        "t": "129",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.24
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     420,
+     342,
+     1400,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "questions from the DAF",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     434,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     480,
+     300,
+     61
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 56.0,
+      "runs": [
+       {
+        "t": "~200",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.24
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     420,
+     492,
+     1400,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "on current affairs",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     584,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     630,
+     300,
+     61
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 56.0,
+      "runs": [
+       {
+        "t": "+",
+        "sz": 56.0,
+        "b": true,
+        "i": false,
+        "c": "#C8642A",
+        "spc": -2.24
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "text",
+    "box": [
+     420,
+     642,
+     1400,
+     42
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 38.0,
+      "runs": [
+       {
+        "t": "motivation, service and cadre preference",
+        "sz": 38.0,
+        "b": false,
+        "i": false,
+        "c": "#F2EFE9",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     734,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "text",
+    "box": [
+     96,
+     820,
+     1700,
+     35
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": 32.0,
+      "runs": [
+       {
+        "t": "Not an ambitious target. The minimum this stage takes.",
+        "sz": 32.0,
+        "b": false,
+        "i": false,
+        "c": "#7D7B75",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "n": 27,
+  "logo": true,
+  "notes": "So that is the programme. Repair the document. Find out what has actually been asked of people with your profile. Prepare the current affairs that touch you. Build positions you can stand behind. Learn to read the room. Details are on screen and the link is below. And whether you join us or not, do one thing this week. Open your DAF and read it the way four strangers will read it in January.\n\n27",
+  "els": [
+   {
+    "k": "shape",
+    "box": [
+     96,
+     406,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "shape",
+    "box": [
+     96,
+     900,
+     1600,
+     1
+    ],
+    "fill": "#2A2E31",
+    "geom": "roundRect",
+    "rot": 0.0
+   },
+   {
+    "k": "img",
+    "box": [
+     0,
+     0,
+     1347,
+     757
+    ],
+    "src": "image-27-2.jpg"
+   },
+   {
+    "k": "img",
+    "box": [
+     1426,
+     236,
+     432,
+     432
+    ],
+    "src": "image-27-3.png"
+   },
+   {
+    "k": "text",
+    "box": [
+     79,
+     758,
+     1617,
+     327
+    ],
+    "anchor": "t",
+    "ins": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "paras": [
+     {
+      "algn": "l",
+      "lh": null,
+      "runs": [
+       {
+        "t": "Whatsapp/Call us at",
+        "sz": 88.0,
+        "b": true,
+        "i": false,
+        "c": "#FFFFFF",
+        "spc": 0.0
+       }
+      ]
+     },
+     {
+      "algn": "l",
+      "lh": 180.0,
+      "runs": [
+       {
+        "t": "7303316700",
+        "sz": 180.0,
+        "b": true,
+        "i": false,
+        "c": "#FFFFFF",
+        "spc": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
